@@ -5,17 +5,17 @@
         </div>
     </div>
     <div *ngIf="dataLoaded === true" class="row">
-        <div class="col-md-6" *ngFor="let generalContent of generalContents">
+        <div class="col-md-4" *ngFor="let generalContent of generalContents" (click)="setCurrentGeneralContent(generalContent)">
             <div class="productDiv">
                 <img [src]="generalContent.imagePath" alt="{{ generalContent.name }}" />
                 <h3><strong><i>{{ generalContent.name }}</i></strong></h3>
                 <!-- <p>{{ generalContent.type }} : {{generalContent.value}}</p>
                 <p class="criticalLevel">Kritik seviye: {{generalContent.isCritialLevel}}</p> -->
             </div>
-        </div>
+        </div> 
+        <h5 *ngIf="currentGeneralContent">{{currentGeneralContent.name}} seçtiniz</h5> 
     </div>
 </div>
-
 <div *ngIf="dataLoaded == true">
     <app-footer ngSkipHydration></app-footer>
 </div>

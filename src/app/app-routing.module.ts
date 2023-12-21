@@ -5,7 +5,7 @@ import { ProductContentComponent } from './components/product-content/product-co
 import { GeneralContentComponent } from './components/general-content/general-content.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: ProductComponent },
+  { path: '', component: ProductComponent },
   { path: 'productContents/getproductcontentdetails', component: ProductContentComponent },
   { path: 'generalContents/getall', component: GeneralContentComponent },
 ];

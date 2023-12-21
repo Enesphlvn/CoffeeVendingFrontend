@@ -10,7 +10,7 @@ import { ProductContent } from '../../models/productContent';
 export class ProductContentComponent implements OnInit {
 
   dataLoaded: boolean = false;
-  productContents: ProductContent[] = [];
+  productContents: ProductContent[];
 
   constructor(private productContentService : ProductContentService) {}
 

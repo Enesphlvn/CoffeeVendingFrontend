@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   dataLoaded: boolean = false;
-  constructor() {}
+  constructor(private router : Router) {}
 
   ngOnInit(): void {
     
+  }
+
+  coffeeSupplies(){
+    this.router.navigate(['generalContents/getall']);
   }
 }

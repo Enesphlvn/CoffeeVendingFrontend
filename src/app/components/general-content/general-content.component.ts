@@ -9,9 +9,11 @@ import { GeneralContent } from '../../models/generalContent';
 })
 export class GeneralContentComponent implements OnInit {
   dataLoaded: boolean = false;
-  generalContents: GeneralContent[] = [];
+  generalContents: GeneralContent[];
+  currentGeneralContent: GeneralContent;
 
-  constructor(private generalContentService : GeneralContentService) { }
+  constructor(private generalContentService : GeneralContentService) {
+  }
 
   ngOnInit():void {
     this.getGeneralContents();
@@ -22,5 +24,9 @@ export class GeneralContentComponent implements OnInit {
       this.generalContents = response.data;
       this.dataLoaded = true;
     })
+  }
+
+  setCurrentGeneralContent(generalContent: GeneralContent){
+    this.currentGeneralContent = generalContent;
   }
 }

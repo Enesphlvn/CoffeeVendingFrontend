@@ -9,7 +9,7 @@ import { Order } from '../../models/order';
 })
 export class OrderComponent implements OnInit {
 
-  orders: Order[] = [];
+  orders: Order[];
 
   constructor(private orderService: OrderService) { }
 

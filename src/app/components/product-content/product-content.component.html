@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="text-center">
+        <div *ngIf="dataLoaded === false" class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <table class="table table-light table-hover">
+        <thead>
+            <tr>
+                <th>Ürün İsmi</th>
+                <th>Kullanılan Malzeme</th>
+                <th>Miktar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let productContent of productContents">
+                <td>{{productContent.productName}}</td>
+                <td>{{productContent.generalContentName}}</td>
+                <td>{{productContent.unit}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

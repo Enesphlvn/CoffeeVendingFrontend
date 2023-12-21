@@ -1,0 +1,28 @@
+.navbar {
+  background-color: rgb(70, 92, 114);
+}
+
+.renk {
+  color: rgb(196, 153, 108);
+  cursor: pointer;
+}
+
+.overlay-text {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.spaceButton {
+  padding: 5px 15px;
+  margin-top: 15px;
+  background-color: rgb(70, 92, 114);
+  color: white;
+}
+
+.headerIcon {
+  padding-right: 20px;
+}
+
+.navbar-brand {
+  font-size: 25px;
+}

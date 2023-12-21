@@ -1,0 +1,20 @@
+<div class="container">
+<table class="table">
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Product Name</th>
+            <th>Amount Paid</th>
+            <th>Refund paid</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td>{{ order.userName }}</td>
+            <td>{{ order.productName }}</td>
+            <td>{{ order.amountPaid }}₺</td>
+            <td>{{ order.refundPaid }}₺</td>
+        </tr>
+    </tbody>
+</table>
+</div>

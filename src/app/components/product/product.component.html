@@ -1,0 +1,25 @@
+<div class="container" id="home">
+    <div class="text-center">
+        <div *ngIf="dataLoaded === false" class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="dataLoaded === true" class="row">
+        <div class="col-md-4" *ngFor="let product of products">
+            <div class="productDiv">
+                <img [src]="product.imagePath" alt="{{ product.name }}" />
+                <h3><strong><i>{{ product.name }}</i></strong></h3>
+                <p>{{ product.description }}</p>
+
+                <div class="price">
+                    <p>{{product.price}} <i>TL</i></p>
+                    <button class="buy">Satın al</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="dataLoaded == true">
+    <app-footer ngSkipHydration></app-footer>
+</div>

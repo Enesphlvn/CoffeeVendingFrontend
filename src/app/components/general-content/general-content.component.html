@@ -1,0 +1,21 @@
+<div class="container" id="home">
+    <div class="text-center">
+        <div *ngIf="dataLoaded === false" class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="dataLoaded === true" class="row">
+        <div class="col-md-6" *ngFor="let generalContent of generalContents">
+            <div class="productDiv">
+                <img [src]="generalContent.imagePath" alt="{{ generalContent.name }}" />
+                <h3><strong><i>{{ generalContent.name }}</i></strong></h3>
+                <!-- <p>{{ generalContent.type }} : {{generalContent.value}}</p>
+                <p class="criticalLevel">Kritik seviye: {{generalContent.isCritialLevel}}</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="dataLoaded == true">
+    <app-footer ngSkipHydration></app-footer>
+</div>

@@ -1,0 +1,21 @@
+.spinner-grow {
+  color: rgb(196, 153, 108);
+}
+
+.container {
+  margin-top: 100px;
+}
+
+.spinner-grow {
+  margin-top: 420px;
+}
+
+.table,
+th,
+td {
+  border: solid 1px #d9c3a9;
+}
+
+.table {
+  font-size: 18px;
+}

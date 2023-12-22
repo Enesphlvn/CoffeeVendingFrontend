@@ -11,40 +11,53 @@
 }
 
 .productDiv {
-  border: 1px solid black;
+  border: 1px dashed black;
   border-radius: 30px;
   margin: 20px 20px;
-  width: 425px;
 }
 
 .productDiv:hover img {
   opacity: 1;
 }
 
-.productDiv:hover {
-  background-color: rgb(196, 153, 108);
-}
-
 .productDiv img {
   width: 100%;
   border-radius: 30px 30px 0px 0px;
   opacity: 0.6;
-  height: 400px;
 }
 
-.productDiv h4 {
+.productDiv h3 {
   text-align: center;
   color: #4e3529;
-  padding: 18px;
+  padding-top: 10px;
+  font-size: x-large;
 }
 
 .productDiv p {
   padding: 0px 15px;
   text-align: center;
-  height: 20px;
+  height: 65px;
 }
 
-.criticalLevel {
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.price p {
   color: rgb(207, 0, 0);
+  font-size: 30px;
   font-weight: bold;
+  margin-top: 0px;
+}
+
+.price .buy {
+  background-color: rgb(196, 153, 108);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  width: 50%;
 }

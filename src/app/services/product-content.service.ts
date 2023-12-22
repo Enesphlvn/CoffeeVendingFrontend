@@ -9,11 +9,12 @@ import { ProductContent } from '../models/productContent';
 })
 export class ProductContentService {
 
-  apiUrl = "https://localhost:7029/api/productContents/getproductcontentdetails";
+  apiUrl = "https://localhost:7029/api/";
 
   constructor(private httpClient : HttpClient) { }
 
   getProductContents(): Observable<ListResponseModel<ProductContent>> {
-    return this.httpClient.get<ListResponseModel<ProductContent>>(this.apiUrl);
+    let newPath = this.apiUrl + 'productContents/getproductcontentdetails';
+    return this.httpClient.get<ListResponseModel<ProductContent>>(newPath);
   }
 }

@@ -6,7 +6,7 @@
     </div>
     <table class="table table-light table-hover">
         <thead>
-            <tr>
+            <tr *ngIf="dataLoaded === true">
                 <th>Ürün İsmi</th>
                 <th>Kullanılan Malzeme</th>
                 <th>Miktar</th>

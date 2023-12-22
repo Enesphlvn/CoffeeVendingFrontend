@@ -10,6 +10,9 @@ import { NaviComponent } from './components/navi/navi.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductContentComponent } from './components/product-content/product-content.component';
 import { GeneralContentComponent } from './components/general-content/general-content.component';
+import { GeneralContentDetailComponent } from './components/general-content-detail/general-content-detail.component';
+import { CommunicationComponent } from './components/communication/communication.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { GeneralContentComponent } from './components/general-content/general-co
     NaviComponent,
     FooterComponent,
     ProductContentComponent,
-    GeneralContentComponent
+    GeneralContentComponent,
+    GeneralContentDetailComponent,
+    CommunicationComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

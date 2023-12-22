@@ -9,11 +9,12 @@ import { Order } from '../models/order';
 })
 export class OrderService {
 
-  apiUrl="https://localhost:7029/api/orders/getorderdetails";
+  apiUrl="https://localhost:7029/api/";
 
   constructor(private httpClient : HttpClient) { }
 
   getOrders(): Observable<ListResponseModel<Order>> {
-    return this.httpClient.get<ListResponseModel<Order>>(this.apiUrl);
+    let newPath = this.apiUrl + 'orders/getorderdetails';
+    return this.httpClient.get<ListResponseModel<Order>>(newPath);
   }
 }

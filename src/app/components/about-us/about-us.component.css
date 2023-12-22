@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    margin-top: 50px;
+}
+
+.img{
+    height: 520px;
+    width: 520px;
+}
+
+div h2{
+    text-align: start;
+}

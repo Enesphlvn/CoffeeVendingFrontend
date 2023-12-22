@@ -16,4 +16,12 @@ export class NaviComponent implements OnInit {
   homePage(){
     this.router.navigate(['/']);
   }
+
+  communication(){
+    this.router.navigate(['communication']);
+  }
+
+  aboutUs(){
+    this.router.navigate(['aboutUs']);
+  }
 }

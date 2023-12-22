@@ -9,11 +9,12 @@ import { GeneralContent } from '../models/generalContent';
 })
 export class GeneralContentService {
 
-  apiUrl = "https://localhost:7029/api/generalContents/getall";
+  apiUrl = "https://localhost:7029/api/";
 
   constructor(private httpClient : HttpClient) { }
 
   getGeneralContents(): Observable<ListResponseModel<GeneralContent>> {
-    return this.httpClient.get<ListResponseModel<GeneralContent>>(this.apiUrl);
+    let newPath = this.apiUrl + 'generalContents/getall';
+    return this.httpClient.get<ListResponseModel<GeneralContent>>(newPath);
   }
 }

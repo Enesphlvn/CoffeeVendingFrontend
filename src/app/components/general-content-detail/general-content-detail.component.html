@@ -1,0 +1,21 @@
+<div class="container" id="home">
+    <div class="text-center">
+        <div *ngIf="dataLoaded === false" class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="dataLoaded === true" class="row">
+        <div class="col-md-4" *ngFor="let generalContent of generalContents">
+            <div class="productDiv">
+                <img [src]="generalContent.imagePath" alt="{{ generalContent.productName }}" />
+                <h3><strong><i>{{ generalContent.productName }}</i></strong></h3>
+                <p>{{ generalContent.description }}</p>
+
+                <div class="price">
+                    <p>{{generalContent.price}} <i>TL</i></p>
+                    <button class="buy">Satın al</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

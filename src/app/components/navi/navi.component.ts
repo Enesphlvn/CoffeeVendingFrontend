@@ -17,11 +17,11 @@ export class NaviComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  communication(){
-    this.router.navigate(['communication']);
-  }
-
   aboutUs(){
     this.router.navigate(['aboutUs']);
+  }
+
+  coffeeSupplies(){
+    this.router.navigate(['generalContents/getall']);
   }
 }

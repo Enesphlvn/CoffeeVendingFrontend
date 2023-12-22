@@ -13,7 +13,7 @@
 
                 <div class="price">
                     <p>{{product.price}} <i>TL</i></p>
-                    <button class="buy">Satın al</button>
+                    <button routerLink="/products/getbyid/{{product.id}}" class="buy">Satın al</button>
                 </div>
             </div>
         </div>
@@ -21,5 +21,5 @@
 </div>
 
 <div *ngIf="dataLoaded == true">
-    <app-footer ngSkipHydration></app-footer>
+    <app-footer></app-footer>
 </div>

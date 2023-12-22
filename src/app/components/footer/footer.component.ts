@@ -15,7 +15,15 @@ export class FooterComponent implements OnInit {
     
   }
 
-  coffeeSupplies(){
-    this.router.navigate(['generalContents/getall']);
+  aboutUs(){
+    this.router.navigate(['aboutUs']);
+  }
+
+  homePage(){
+    this.router.navigate(['/']);
+  }
+
+  communication(){
+    this.router.navigate(['communication']);
   }
 }

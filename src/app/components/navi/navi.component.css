@@ -2,11 +2,6 @@
   background-color: rgb(70, 92, 114);
 }
 
-.renk {
-  color: rgb(196, 153, 108);
-  cursor: pointer;
-}
-
 .overlay-text {
   width: 100%;
   margin-bottom: 25px;
@@ -25,4 +20,18 @@
 
 .navbar-brand {
   font-size: 25px;
+}
+
+.mainOption{
+  color: black;
+  cursor: pointer;
+}
+
+.option{
+  cursor: pointer;
+  color: white;
+}
+
+.option:hover{
+  color: black;
 }

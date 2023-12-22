@@ -1,15 +1,33 @@
-<footer class="footer">
-    <ul class="contactUs">
-        <li><a>Anasayfa</a></li>
-        <li><a>Hakkımızda</a></li>
-        <li><a>İletişim</a></li>
-    </ul>
+<footer class="text-black">
+    <div class="container">
+        <div class="row">
+            <div class="footerText col-md-3 col-lg-4 col-xl-3 mx-auto">
+                <h6 class="brandName text-uppercase fw-bold mb-4">
+                    <span style="color: #d9c3a9"><strong>Kahve</strong></span>
+                    <span style="color: #4e3529"><strong>Keyfi</strong></span>
+                </h6>
+                <p>Lezzet garantisi ve özenle seçilmiş kahveler.</p>
+            </div>
 
-    <img class="footerImg" src="assets/pngegg.png" height="60px" />
+            <div class="footerText col-md-2 col-lg-2 col-xl-2 mx-auto">
+                <h6 class="text-uppercase fw-bold">Bilgi</h6>
+                <p><a (click)="aboutUs()">Hakkımızda</a></p>
+                <p><a (click)="homePage()">Menü</a></p>
+            </div>
 
-    <ul class="coffees">
-        <li><a (click)="coffeeSupplies()">Malzemelerimiz</a></li>
-        <li><a>Bize Ulaşın</a></li>
-        <li><a>Menü</a></li>
-    </ul>
+            <div class="footerText col-md-3 col-lg-2 col-xl-2 mx-auto">
+                <h6 class="text-uppercase fw-bold">Müşteri Desteği</h6>
+                <p><a (click)="communication()">İletişim</a></p>
+                <p><a>Yardım</a></p>
+            </div>
+
+            <div class="footerText col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0">
+                <h6 class="text-uppercase fw-bold">Şikayet ve Öneri?</h6>
+                <p><i class="fas fa-home">İstanbul, KD 34012, TR</i></p>
+                <p><i class="fas fa-envelope">infoRoadmasters.com</i></p>
+                <p><i class="fas fa-phone">+ 0 216 567 88 44</i></p>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-2">© 2023 Copyright: RoadMasters.com</div>
 </footer>

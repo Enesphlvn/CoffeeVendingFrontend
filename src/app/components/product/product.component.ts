@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -14,18 +14,11 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    // this.activatedRoute.params.subscribe((params) => {
-    //   if (params['generalContentId']) {
-    //     this.getProductsByGeneralContentId(params['generalContentId']);
-    //   } else {
-    //     this.getProducts();
-    //   }
-    // });
-
     this.getProducts();
   }
 
@@ -35,13 +28,4 @@ export class ProductComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
-
-  // getProductsByGeneralContentId(generalContentId: number) {
-  //   this.productService
-  //     .getProductsByCategoryId(generalContentId)
-  //     .subscribe((response) => {
-  //       this.products = response.data;
-  //       this.dataLoaded = true;
-  //     });
-  // }
 }

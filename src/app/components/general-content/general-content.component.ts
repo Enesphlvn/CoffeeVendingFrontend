@@ -25,8 +25,4 @@ export class GeneralContentComponent implements OnInit {
       this.dataLoaded = true;
     })
   }
-
-  setCurrentGeneralContent(generalContent: GeneralContent){
-    this.currentGeneralContent = generalContent;
-  }
 }

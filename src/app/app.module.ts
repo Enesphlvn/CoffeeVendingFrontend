@@ -13,6 +13,7 @@ import { GeneralContentComponent } from './components/general-content/general-co
 import { GeneralContentDetailComponent } from './components/general-content-detail/general-content-detail.component';
 import { CommunicationComponent } from './components/communication/communication.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { BuyComponent } from './components/buy/buy.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     GeneralContentComponent,
     GeneralContentDetailComponent,
     CommunicationComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    BuyComponent
   ],
   imports: [
     BrowserModule,

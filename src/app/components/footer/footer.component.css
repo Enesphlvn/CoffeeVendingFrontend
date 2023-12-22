@@ -2,50 +2,20 @@
   box-sizing: border-box;
 }
 
-.footer {
+footer {
   background-color: rgb(70, 92, 114);
-  height: 130px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
-.footer .contactUs li {
-  padding: 5px;
-  list-style-type: none;
+.footerText {
+  margin-top: 60px;
 }
 
-.contactUs li a {
+.footerText a{
   text-decoration: none;
-  color: white;
-  font-size: 18px;
-}
-
-.contactUs li a:hover {
-  color: rgb(196, 153, 108);
   cursor: pointer;
+  color: black;
 }
 
-.footerImg {
-  height: 80px;
-}
-
-.footer .coffees li {
-  padding: 5px;
-  list-style-type: none;
-}
-
-.coffees li a {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-}
-
-.coffees li a:hover {
-  color: rgb(196, 153, 108);
-  cursor: pointer;
-}
-
-ul {
-  padding-top: 20px;
+.footerText a:hover{
+  color: white
 }

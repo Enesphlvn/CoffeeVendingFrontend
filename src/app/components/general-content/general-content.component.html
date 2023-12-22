@@ -5,15 +5,15 @@
         </div>
     </div>
     <div *ngIf="dataLoaded === true" class="row">
-        <div class="col-md-4" *ngFor="let generalContent of generalContents"
-            (click)="setCurrentGeneralContent(generalContent)"
-            routerLink="/products/getproductsbygeneralcontentid/{{generalContent.id}}">
+        <div class="col-md-4" *ngFor="let generalContent of generalContents">
             <div class="productDiv">
                 <img [src]="generalContent.imagePath" alt="{{ generalContent.name }}" />
                 <h4><strong><i>{{ generalContent.name }}</i></strong></h4>
+                <div class="price" routerLink="/products/getproductsbygeneralcontentid/{{generalContent.id}}">
+                    <button class="buy">İlgili kahvelere göz atın</button>
+                </div>
             </div>
         </div>
-        <h5 *ngIf="currentGeneralContent">{{currentGeneralContent.name}} seçtiniz</h5>
     </div>
 </div>
 

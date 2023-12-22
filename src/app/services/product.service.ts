@@ -23,4 +23,9 @@ export class ProductService {
     let newPath = this.apiUrl + 'products/getproductsbygeneralcontentid?generalContentId=' + generalContentId;
     return this.httpClient.get<ListResponseModel<GeneralContentDetail>>(newPath);
   }
+
+  getById(productId:number): Observable<Product>{
+    let newPath = this.apiUrl + 'products/getbyid?productId=' + productId;
+    return this.httpClient.get<Product>(newPath);
+  }
 }

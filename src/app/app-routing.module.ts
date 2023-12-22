@@ -6,11 +6,13 @@ import { GeneralContentComponent } from './components/general-content/general-co
 import { GeneralContentDetailComponent } from './components/general-content-detail/general-content-detail.component';
 import { CommunicationComponent } from './components/communication/communication.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { BuyComponent } from './components/buy/buy.component';
 
 const routes: Routes = [
   { path: '', component: ProductComponent },
   { path: 'productContents/getproductcontentdetails', component: ProductContentComponent},
   { path: 'generalContents/getall', component: GeneralContentComponent },
+  { path: 'products/getbyid/:productId', component: BuyComponent},
   { path: 'products/getproductsbygeneralcontentid/:generalContentId', component: GeneralContentDetailComponent},
   { path: 'communication', component: CommunicationComponent },
   { path: 'aboutUs', component: AboutUsComponent },

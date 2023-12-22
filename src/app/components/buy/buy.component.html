@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row" *ngIf="product">
+        <div class="col-md-7">
+            <div class="productDiv text-center">
+                <h4 class="mb-4"><strong>Ürün Adı: {{product.name}}</strong></h4>
+                <h4><strong>Ürün Fiyatı: {{product.price}}</strong></h4>
+            </div>
+            <form class="form">
+                <div class="mb-2 mt-5 py-2">
+                    <label class="form-label">Ödenecek tutar</label>
+                    <input class="form-control" type="number" placeholder="Ödenecek tutarı giriniz" />
+                </div>
+                <div class="mb-3 py-2">
+                    <label class="form-label">Para üstü</label>
+                    <input class="form-control" type="number" readonly />
+                </div>
+                <div class="mt-4 py-2 ">
+                    <button class="buy">Ödeme işlemini tamamla</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <div class="img">
+                <img src="{{product.imagePath}}" alt="">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <app-footer></app-footer>
+</div>

@@ -5,7 +5,15 @@
         </div>
     </div>
     <div *ngIf="dataLoaded === true" class="row">
-        <div class="col-md-4" *ngFor="let product of products">
+        <div class="mb-3">
+            <label for="filterText" class="form-label">Ürün ara</label>
+            <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+                placeholder="ürün ismi giriniz">
+        </div>
+        <div *ngIf="filterText" class="alert alert-secondary">
+            {{filterText}} aradınız
+        </div>
+        <div class="col-md-4 mb-3" *ngFor="let product of products | filterPipe:filterText">
             <div class="productDiv">
                 <img [src]="product.imagePath" alt="{{ product.name }}" />
                 <h3><strong><i>{{ product.name }}</i></strong></h3>

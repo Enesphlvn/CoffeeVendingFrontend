@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
         <img class="headerIcon" src="assets/pngegg.png" height="70" />
-        <a class="navbar-brand text-light fw-bold"><span style="color: #d9c3a9">Kahve</span><span
+        <a (click)="homePage()" class="navbar-brand fw-bold"><span style="color: #d9c3a9">Kahve</span><span
                 style="color: #4e3529">Keyfi</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,6 +17,16 @@
                 </li>
                 <li class="nav-item">
                     <a class="option renk nav-link" (click)="coffeeSupplies()">Malzemeler</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="option nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Kullanıcı Adı
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item">Profil güncelle</a></li>
+                        <li><a class="dropdown-item">Şifre güncelle</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>

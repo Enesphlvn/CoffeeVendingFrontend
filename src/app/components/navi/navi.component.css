@@ -19,6 +19,10 @@
 }
 
 .navbar-brand {
+  cursor: pointer;
+}
+
+.navbar-brand {
   font-size: 25px;
 }
 
@@ -34,4 +38,8 @@
 
 .option:hover{
   color: black;
+}
+
+.dropdown li a{
+  cursor: pointer;
 }

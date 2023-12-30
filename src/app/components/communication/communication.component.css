@@ -2,8 +2,13 @@
   box-sizing: border-box;
 }
 
+input{
+  background-color: #eee6dd;
+}
+
 .textArea {
   resize: none;
+  background-color: #eee6dd;
 }
 
 .btn{

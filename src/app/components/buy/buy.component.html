@@ -1,9 +1,15 @@
 <div class="container">
     <div class="row" *ngIf="product">
         <div class="col-md-7">
-            <div class="productDiv text-center">
-                <h4 class="mb-4"><strong>Ürün Adı: {{product.name}}</strong></h4>
-                <h4><strong>Ürün Fiyatı: {{product.price}}</strong></h4>
+            <div class="productDiv text-center mt-4">
+                <h4 class="mb-4">
+                    <span><strong>Ürün Adı: </strong></span>
+                    <span class="name"><strong><i>{{product.name}}</i></strong></span>
+                </h4>
+                <h4>
+                    <span><strong>Ürün Fiyatı: </strong></span>
+                    <span class="price"><strong><i>{{product.price}}₺</i></strong></span>
+                </h4>
             </div>
             <form class="form">
                 <div class="mb-2 mt-5 py-2">

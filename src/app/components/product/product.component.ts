@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product',
@@ -11,11 +12,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProductComponent implements OnInit {
   products: Product[];
   dataLoaded: boolean = false;
+  filterText: string = '';
 
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {

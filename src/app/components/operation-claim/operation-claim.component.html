@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="text-center">
+        <div *ngIf="dataLoaded === false" class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <table class="table table-light table-hover">
+        <thead>
+            <tr *ngIf="dataLoaded === true">
+                <th>Id</th>
+                <th>Rol</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let operationClaim of operationClaims">
+                <td>{{operationClaim.id}}</td>
+                <td>{{operationClaim.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

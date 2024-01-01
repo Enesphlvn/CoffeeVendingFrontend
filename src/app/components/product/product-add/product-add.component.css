@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin-top: 115px;
+}
+
+.textArea {
+  resize: none;
+}
+
+.btn {
+    width: 80px;
+}

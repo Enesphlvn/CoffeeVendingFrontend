@@ -1,6 +1,17 @@
 <div class="container">
+    <div class="text-center">
+        <div *ngIf="dataLoaded === false" class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
     <div class="row" *ngIf="product">
         <div class="col-md-7">
+            <div class="img">
+                <img src="{{product.imagePath}}">
+            </div>
+        </div>
+
+        <div class="col-md-5">
             <div class="productDiv text-center mt-4">
                 <h4 class="mb-4">
                     <span><strong>Ürün Adı: </strong></span>
@@ -11,25 +22,30 @@
                     <span class="price"><strong><i>{{product.price}}₺</i></strong></span>
                 </h4>
             </div>
-            <form class="form">
-                <div class="mb-2 mt-5 py-2">
+            <form [formGroup]="orderAddForm" class="form">
+                <div class="form-group mt-2 py-1">
+                    <label for="userId" class="form-label">Kullanıcı</label>
+                    <select id="userId" class="form-select" formControlName="userId">
+                        <option [ngValue]="null">Kullanıcı seçiniz</option>
+                        <option *ngFor="let user of users" [value]="user.id">
+                            {{user.firstName}} {{user.lastName}}
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-2 mt-1 py-1">
                     <label class="form-label">Ödenecek tutar</label>
-                    <input class="form-control" type="number" placeholder="Ödenecek tutarı giriniz" />
+                    <input class="form-control" type="number" placeholder="Ödenecek tutarı giriniz"
+                        formControlName="amountPaid" />
                 </div>
-                <div class="mb-3 py-2">
-                    <label class="form-label">Para üstü</label>
-                    <input class="form-control" type="number" readonly />
+                <div *ngIf="successMessage" class="mb-3 py-1">
+                    <label class="form-label successMessage"><strong>Siparişiniz Tamamlandı</strong></label>
+                    <input class="form-control" type="text" readonly placeholder="{{successMessage}}" />
+                    <button class="buy mt-4" (click)="completed()">Ana sayfaya dön</button>
                 </div>
-                <div class="mt-4 py-2 ">
-                    <button class="buy">Ödeme işlemini tamamla</button>
+                <div class="">
+                    <button class="buy" (click)="add()">Ödeme işlemini tamamla</button>
                 </div>
             </form>
-        </div>
-        <div class="col-md-4">
-            <div class="img">
-                <img src="{{product.imagePath}}" alt="">
-            </div>
-
         </div>
     </div>
 </div>

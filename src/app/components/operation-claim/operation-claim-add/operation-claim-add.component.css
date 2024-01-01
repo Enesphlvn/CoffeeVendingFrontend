@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin-top: 115px;
+}
+
+.btn {
+  width: 80px;
+}

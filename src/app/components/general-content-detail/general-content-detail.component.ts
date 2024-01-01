@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from '../../models/product';
-import { GeneralContentDetail } from '../../models/generalContentDetail';
+import { Product } from '../../models/product/product';
+import { GeneralContentDetail } from '../../models/general-content/generalContentDetail';
 
 @Component({
   selector: 'app-general-content-detail',

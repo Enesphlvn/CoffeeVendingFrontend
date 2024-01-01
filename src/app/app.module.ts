@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,8 +17,14 @@ import { CommunicationComponent } from './components/communication/communication
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { BuyComponent } from './components/buy/buy.component';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+import { ProductAddComponent } from './components/product/product-add/product-add.component';
+import { GeneralContentAddComponent } from './components/general-content/general-content-add/general-content-add.component';
 
 import { ToastrModule } from 'ngx-toastr';
+import { OperationClaimComponent } from './components/operation-claim/operation-claim.component';
+import { OperationClaimAddComponent } from './components/operation-claim/operation-claim-add/operation-claim-add.component';
+import { ProductContentAddComponent } from './components/product-content/product-content-add/product-content-add.component';
+import { OrderAddComponent } from './components/order/order-add/order-add.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,13 @@ import { ToastrModule } from 'ngx-toastr';
     CommunicationComponent,
     AboutUsComponent,
     BuyComponent,
-    FilterPipePipe
+    FilterPipePipe,
+    ProductAddComponent,
+    GeneralContentAddComponent,
+    OperationClaimComponent,
+    OperationClaimAddComponent,
+    ProductContentAddComponent,
+    OrderAddComponent
   ],
   imports: [
     BrowserModule,
@@ -41,8 +53,9 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
-      timeOut: 3000,
+      timeOut: 4000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true, // Aynı içeriğe sahip iki ardışık toast mesajının önlenip önlenmeyeceğini belirtir.
       resetTimeoutOnDuplicate: true, // Tekrarlanan bir toast mesajı olduğunda süre sıfırlansın mı belirtir.

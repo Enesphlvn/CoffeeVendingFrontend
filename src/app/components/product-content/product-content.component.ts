@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductContentService } from '../../services/product-content.service';
-import { ProductContent } from '../../models/productContent';
+import { ProductContent } from '../../models/product-content/productContent';
 
 @Component({
   selector: 'app-product-content',
@@ -15,10 +15,10 @@ export class ProductContentComponent implements OnInit {
   constructor(private productContentService : ProductContentService) {}
 
   ngOnInit(): void {
-    this.getProductsContent();
+    this.getProductContents();
   }
 
-  getProductsContent(){
+  getProductContents(){
     this.productContentService.getProductContents().subscribe((response) => {
       this.productContents = response.data;
       this.dataLoaded = true;

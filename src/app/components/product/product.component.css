@@ -61,3 +61,27 @@
   padding: 10px;
   width: 50%;
 }
+
+.search-container {
+  position: relative;
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.form-control.expanded {
+  width: 342px;
+}
+
+.search-icon {
+  cursor: pointer;
+  margin-right: 5px;
+  padding-left: 12px;
+}
+
+.searchImage {
+  width: 38px;
+  height: 38px;
+}

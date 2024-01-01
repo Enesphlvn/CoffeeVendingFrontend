@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="title text-center">Rol Ekle</h5>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="operationClaimAddForm">
+                <div class="form-group mb-3">
+                    <label for="operationClaimName" class="form-label">Operation Claim Name</label>
+                    <input class="form-control" type="text" id="operationClaimName" formControlName="name"
+                        placeholder="Enter operation claim name" />
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-success" (click)="add()">Ekle</button>
+        </div>
+    </div>
+</div>

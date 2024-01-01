@@ -5,13 +5,14 @@
         </div>
     </div>
     <div *ngIf="dataLoaded === true" class="row">
-        <div class="mb-3">
-            <label for="filterText" class="form-label">Ürün ara</label>
-            <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
-                placeholder="ürün ismi giriniz">
-        </div>
-        <div *ngIf="filterText" class="alert alert-secondary">
-            {{filterText}} aradınız
+        <div class="search-container">
+            <div class="search-input-container">
+                <i class="search-icon" (click)="toggleSearch()">
+                    <img class="searchImage" src="assets/icons8-search-50.png">
+                </i>
+                <input *ngIf="isExpanded" type="text" [(ngModel)]="filterText" class="form-control expanded"
+                    id="filterText" placeholder="ürün ismi giriniz">
+            </div>
         </div>
         <div class="col-md-4 mb-3" *ngFor="let product of products | filterPipe:filterText">
             <div class="productDiv">

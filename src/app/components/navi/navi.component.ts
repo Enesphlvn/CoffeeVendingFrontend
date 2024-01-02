@@ -9,19 +9,21 @@ import { Router } from '@angular/router';
 export class NaviComponent implements OnInit {
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-  }
-
-  homePage(){
+  homePage() {
     this.router.navigate(['/']);
   }
 
-  aboutUs(){
+  aboutUs() {
     this.router.navigate(['aboutUs']);
   }
 
-  coffeeSupplies(){
+  coffeeSupplies() {
     this.router.navigate(['generalContents/getall']);
+  }
+
+  adminPanel(){
+    this.router.navigate(['adminPanel']);
   }
 }

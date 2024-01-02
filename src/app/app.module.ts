@@ -12,7 +12,7 @@ import { NaviComponent } from './components/navi/navi.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductContentComponent } from './components/product-content/product-content.component';
 import { GeneralContentComponent } from './components/general-content/general-content.component';
-import { GeneralContentDetailComponent } from './components/general-content-detail/general-content-detail.component';
+import { GeneralContentDetailComponent } from './components/general-content/general-content-detail/general-content-detail.component';
 import { CommunicationComponent } from './components/communication/communication.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { BuyComponent } from './components/buy/buy.component';
@@ -24,7 +24,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { OperationClaimComponent } from './components/operation-claim/operation-claim.component';
 import { OperationClaimAddComponent } from './components/operation-claim/operation-claim-add/operation-claim-add.component';
 import { ProductContentAddComponent } from './components/product-content/product-content-add/product-content-add.component';
-import { OrderAddComponent } from './components/order/order-add/order-add.component';
+import { UserOperationClaimComponent } from './components/user-operation-claim/user-operation-claim.component';
+import { UserOperationClaimAddComponent } from './components/user-operation-claim/user-operation-claim-add/user-operation-claim-add.component';
+import { OperationClaimUpdateComponent } from './components/operation-claim/operation-claim-update/operation-claim-update.component';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
+import { GeneralContentUpdateComponent } from './components/general-content/general-content-update/general-content-update.component';
+import { ProductContentUpdateComponent } from './components/product-content/product-content-update/product-content-update.component';
+import { UserOperationClaimUpdateComponent } from './components/user-operation-claim/user-operation-claim-update/user-operation-claim-update.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +52,14 @@ import { OrderAddComponent } from './components/order/order-add/order-add.compon
     OperationClaimComponent,
     OperationClaimAddComponent,
     ProductContentAddComponent,
-    OrderAddComponent
+    UserOperationClaimComponent,
+    UserOperationClaimAddComponent,
+    OperationClaimUpdateComponent,
+    AdminPanelComponent,
+    ProductUpdateComponent,
+    GeneralContentUpdateComponent,
+    ProductContentUpdateComponent,
+    UserOperationClaimUpdateComponent
   ],
   imports: [
     BrowserModule,

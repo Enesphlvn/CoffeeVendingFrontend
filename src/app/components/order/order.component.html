@@ -1,4 +1,9 @@
 <div class="container">
+    <div class="text-center">
+        <div *ngIf="dataLoaded === false" class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
     <table class="table">
         <thead>
             <tr>

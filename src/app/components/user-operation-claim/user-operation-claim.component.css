@@ -2,12 +2,12 @@
   color: rgb(196, 153, 108);
 }
 
-.spinner-grow {
-  margin-top: 420px;
-}
-
 .container {
   margin-top: 100px;
+}
+
+.spinner-grow {
+  margin-top: 420px;
 }
 
 .table,

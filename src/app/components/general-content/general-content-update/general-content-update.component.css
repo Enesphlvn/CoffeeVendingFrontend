@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin-top: 120px;
+}
+
+.form-check-input{
+    margin-right: 10px;
+}

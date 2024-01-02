@@ -5,21 +5,22 @@ import { Order } from '../../models/order/order';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
-  styleUrl: './order.component.css'
+  styleUrl: './order.component.css',
 })
 export class OrderComponent implements OnInit {
-
   orders: Order[];
+  dataLoaded: boolean = false;
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService) {}
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.getOrders();
   }
 
-  getOrders(){
+  getOrders() {
     this.orderService.getOrders().subscribe((response) => {
       this.orders = response.data;
-    })
+      this.dataLoaded = true;
+    });
   }
 }

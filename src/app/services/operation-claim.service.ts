@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ResponseModel } from '../models/responseModel';
 import { ListResponseModel } from '../models/listResponseModel';
 import { OperationClaim } from '../models/operation-claim/operationClaim';
+import { SingleResponseModel } from '../models/singleResponeModel';
 
 @Injectable({
   providedIn: 'root',
@@ -22,5 +23,17 @@ export class OperationClaimService {
   add(operationClaim: OperationClaimAdd): Observable<ResponseModel> {
     let newPath = this.apiUrl + 'operationClaims/add';
     return this.httpClient.post<ResponseModel>(newPath, operationClaim);
+  }
+
+  getById(
+    operationClaimId: number
+  ): Observable<SingleResponseModel<OperationClaim>> {
+    let newPath = this.apiUrl + 'operationClaims/getbyid?operationClaimId=' + operationClaimId;
+    return this.httpClient.get<SingleResponseModel<OperationClaim>>(newPath);
+  }
+
+  update(operationClaim: OperationClaim): Observable<ResponseModel> {
+    let newPath = this.apiUrl + 'operationClaims/update';
+    return this.httpClient.put<ResponseModel>(newPath, operationClaim);
   }
 }

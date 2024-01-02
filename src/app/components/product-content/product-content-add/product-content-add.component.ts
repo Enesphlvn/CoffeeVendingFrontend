@@ -16,6 +16,7 @@ export class ProductContentAddComponent implements OnInit {
   productContentAddForm: FormGroup;
   products: Product[];
   generalContents: GeneralContent[];
+  dataLoaded: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,6 +38,7 @@ export class ProductContentAddComponent implements OnInit {
       generalContentId: [null, Validators.required],
       unit: [null, Validators.required],
     });
+    this.dataLoaded = true;
   }
 
   add() {

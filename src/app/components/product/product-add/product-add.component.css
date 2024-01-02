@@ -11,5 +11,13 @@
 }
 
 .btn {
-    width: 80px;
+  width: 80px;
+}
+
+.spinner-grow {
+  color: rgb(196, 153, 108);
+}
+
+.spinner-grow {
+  margin-top: 420px;
 }

@@ -15,6 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProductAddComponent implements OnInit {
   productAddForm: FormGroup;
+  dataLoaded: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,6 +34,7 @@ export class ProductAddComponent implements OnInit {
       imagePath: ['', Validators.required],
       description: [''],
     });
+    this.dataLoaded = true;
   }
 
   add() {

@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class OperationClaimAddComponent implements OnInit {
   operationClaimAddForm: FormGroup;
+  dataLoaded: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,6 +26,7 @@ export class OperationClaimAddComponent implements OnInit {
     this.operationClaimAddForm = this.formBuilder.group({
       name: ['', Validators.required],
     });
+    this.dataLoaded = true;
   }
 
   add() {

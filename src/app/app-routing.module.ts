@@ -20,6 +20,7 @@ import { GeneralContentUpdateComponent } from './components/general-content/gene
 import { ProductContentUpdateComponent } from './components/product-content/product-content-update/product-content-update.component';
 import { OperationClaimUpdateComponent } from './components/operation-claim/operation-claim-update/operation-claim-update.component';
 import { UserOperationClaimUpdateComponent } from './components/user-operation-claim/user-operation-claim-update/user-operation-claim-update.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: ProductComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'productContents/add', component: ProductContentAddComponent},
   { path: 'operationClaims/add', component: OperationClaimAddComponent},
   { path: 'userOperationClaims/add', component: UserOperationClaimAddComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'generalContents/getall', component: GeneralContentComponent },
   { path: 'operationClaims/getall', component: OperationClaimComponent },
   { path: 'userOperationClaims/getall', component: UserOperationClaimComponent },

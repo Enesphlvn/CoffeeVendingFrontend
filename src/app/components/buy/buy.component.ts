@@ -15,12 +15,12 @@ import { UserService } from '../../services/user.service';
 })
 export class BuyComponent implements OnInit {
   products: Product[];
+  users: User[];
   product: any;
   orderAddForm: FormGroup;
-  users: User[];
   dataLoaded: boolean = false;
-  successMessage: string;
   isLoading: boolean = false;
+  successMessage: string;
 
   constructor(
     private productService: ProductService,
@@ -59,6 +59,12 @@ export class BuyComponent implements OnInit {
           setTimeout(() => {
             this.successMessage = response.message;
             this.isLoading = false;
+
+            if (this.successMessage) {
+              setTimeout(() => {
+                location.reload();
+              }, 3000);
+            }
           }, 4000)
         },
         (responseError) => {
@@ -98,9 +104,5 @@ export class BuyComponent implements OnInit {
       this.createOrderAddForm();
       this.dataLoaded = true;
     });
-  }
-
-  completed(){
-    this.router.navigate(['/']);
   }
 }

@@ -1,9 +1,9 @@
-<div class="container">
-    <div class="text-center">
-        <div *ngIf="dataLoaded === false" class="spinner-grow" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+<div class="text-center">
+    <div *ngIf="dataLoaded === false" class="spinner-grow" role="status">
+        <span class="visually-hidden">Loading...</span>
     </div>
+</div>
+<div *ngIf="dataLoaded === true" class="container">
     <div class="row mb-4">
         <div class="col-md-2 text-start">
             <button class="btn btn-info btn-lg">İstasistik</button>
@@ -82,6 +82,7 @@
             <table class="table table-light table-hover" *ngIf="tableStatus['productContent']">
                 <thead>
                     <tr *ngIf="dataLoaded === true">
+                        <th>Id</th>
                         <th>Name</th>
                         <th>Content</th>
                         <th>Unit</th>
@@ -92,6 +93,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let productContent of productContents">
+                        <td>{{productContent.id}}</td>
                         <td>{{productContent.productName}}</td>
                         <td>{{productContent.generalContentName}}</td>
                         <td>{{productContent.unit}}</td>

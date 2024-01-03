@@ -32,6 +32,7 @@ import { ProductUpdateComponent } from './components/product/product-update/prod
 import { GeneralContentUpdateComponent } from './components/general-content/general-content-update/general-content-update.component';
 import { ProductContentUpdateComponent } from './components/product-content/product-content-update/product-content-update.component';
 import { UserOperationClaimUpdateComponent } from './components/user-operation-claim/user-operation-claim-update/user-operation-claim-update.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { UserOperationClaimUpdateComponent } from './components/user-operation-c
     ProductUpdateComponent,
     GeneralContentUpdateComponent,
     ProductContentUpdateComponent,
-    UserOperationClaimUpdateComponent
+    UserOperationClaimUpdateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

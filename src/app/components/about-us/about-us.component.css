@@ -1,25 +1,33 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-.container{
-    margin-top: 30px;
+.container {
+  margin-top: 30px;
 }
 
-.img{
-    height: 520px;
-    width: 520px;
+.spinner-grow {
+  color: rgb(196, 153, 108);
 }
 
-div h2{
-    text-align: start;
+.spinner-grow {
+  margin-top: 420px;
 }
 
-.row{
-    text-align: start;
-    align-items: center;
+.img {
+  height: 520px;
+  width: 520px;
 }
 
-.space{
-    margin-right: 80px;
+div h2 {
+  text-align: start;
+}
+
+.row {
+  text-align: start;
+  align-items: center;
+}
+
+.space {
+  margin-right: 80px;
 }

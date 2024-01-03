@@ -12,7 +12,7 @@
         </div>
 
         <div class="col-md-5">
-            <div class="productDiv text-center mt-4">
+            <div class="productDiv text-center mt-5">
                 <h4 class="mb-4">
                     <span><strong>Ürün Adı: </strong></span>
                     <span class="name"><strong><i>{{product.name}}</i></strong></span>
@@ -40,9 +40,8 @@
                 <div *ngIf="successMessage" class="mb-3 py-1">
                     <label class="form-label successMessage"><strong>Siparişiniz Tamamlandı</strong></label>
                     <input class="form-control" type="text" readonly placeholder="{{successMessage}}" />
-                    <button class="buy mt-4" (click)="completed()">Ana sayfaya dön</button>
                 </div>
-                <div class="">
+                <div>
                     <button class="buy" (click)="add()">Ödeme işlemini tamamla</button>
                 </div>
             </form>

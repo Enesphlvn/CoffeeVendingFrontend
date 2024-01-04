@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { response } from 'express';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -36,9 +37,9 @@ export class LoginComponent implements OnInit {
         (response) => {
           this.toastrService.success(response.message);
           localStorage.setItem('token', response.data.token);
+          this.homePage();
         },
         (responseError) => {
-          console.log(responseError);
           if (responseError.error.message) {
             this.toastrService.error(responseError.error.message);
           } 
@@ -52,5 +53,13 @@ export class LoginComponent implements OnInit {
     } else {
       this.toastrService.error('Formunuz eksik', 'Dikkat');
     }
+  }
+
+  register(){
+    this.router.navigate(['register']);
+  }
+
+  homePage(){
+    this.router.navigate(['']);
   }
 }

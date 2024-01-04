@@ -29,23 +29,37 @@ form h1 {
   z-index: 2;
 }
 
-.form-signin input[type="email"] {
+.form-signin input[id="firstName"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-signin input[type="password"] {
+.form-signin input[id="lastName"] {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.form-signin input[id="email"] {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.form-signin input[id="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-p a{
+p a {
   color: red;
 }
 
-p a:hover{
+p a:hover {
   color: red;
   cursor: pointer;
 }

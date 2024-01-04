@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponeModel';
 import { TokenModel } from '../models/auth/tokenModel';
+import { RegisterModel } from '../models/auth/registerModel';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +17,11 @@ export class AuthService {
 
   login(user: LoginModel): Observable<SingleResponseModel<TokenModel>> {
     let newPath = this.apiUrl + 'auth/login';
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(newPath, user);
+  }
+
+  register(user: RegisterModel): Observable<SingleResponseModel<TokenModel>> {
+    let newPath = this.apiUrl + 'auth/register';
     return this.httpClient.post<SingleResponseModel<TokenModel>>(newPath, user);
   }
 

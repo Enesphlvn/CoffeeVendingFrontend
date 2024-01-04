@@ -57,7 +57,10 @@ export class UserOperationClaimUpdateComponent {
           this.toastrService.success(response.message, 'Başarılı');
         },
         (responseError) => {
-          if (responseError.error.ValidationErrors.length > 0) {
+          if (responseError.error.Message) {
+            this.toastrService.error('Yetkiniz yok');
+          }
+          else if (responseError.error.ValidationErrors.length > 0) {
             for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
               this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage, 'Doğrulama Hatası');
             }

@@ -7,9 +7,32 @@ import { Router } from '@angular/router';
   styleUrl: './navi.component.css',
 })
 export class NaviComponent implements OnInit {
+  loginCheck: boolean = false;
+  name: string;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  check() {
+    const token = localStorage.getItem('token');
+    if (token !== null) {
+      this.loginCheck = true;
+    } else {
+      return;
+    }
+
+    // if (this.loginCheck) {
+    //   if (!this.name) {
+    //     try {
+    //       const decoded: any = 
+    //       this.name = decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
+    //     }
+    //     catch (error) {}
+    //   }
+
+    // }
+  }
 
   homePage() {
     this.router.navigate(['/']);
@@ -23,7 +46,7 @@ export class NaviComponent implements OnInit {
     this.router.navigate(['generalContents/getall']);
   }
 
-  adminPanel(){
+  adminPanel() {
     this.router.navigate(['adminPanel']);
   }
 }

@@ -10,6 +10,7 @@ import { OperationClaimService } from '../../services/operation-claim.service';
 import { OperationClaim } from '../../models/operation-claim/operationClaim';
 import { UserOperationClaim } from '../../models/user-operation-claim/userOperationClaim';
 import { UserOperationClaimService } from '../../services/user-operation-claim.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-panel',
@@ -37,6 +38,7 @@ export class AdminPanelComponent implements OnInit {
     private productContentService: ProductContentService,
     private operationClaimService: OperationClaimService,
     private userOperationClaimService: UserOperationClaimService,
+    private toastrService: ToastrService,
     private router: Router
   ) {}
 
@@ -105,5 +107,11 @@ export class AdminPanelComponent implements OnInit {
 
   userOperationClaimAdd(){
     this.router.navigate(['userOperationClaims/add']);
+  }
+
+  logOut(){
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
+    this.toastrService.error('Sistemden çıkış yapıldı');
   }
 }

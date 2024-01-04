@@ -21,26 +21,29 @@ import { ProductContentUpdateComponent } from './components/product-content/prod
 import { OperationClaimUpdateComponent } from './components/operation-claim/operation-claim-update/operation-claim-update.component';
 import { UserOperationClaimUpdateComponent } from './components/user-operation-claim/user-operation-claim-update/user-operation-claim-update.component';
 import { LoginComponent } from './components/login/login.component';
+import { LoginGuard } from './guards/login.guard';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: '', component: ProductComponent },
   { path: 'productContents/getproductcontentdetails', component: ProductContentComponent},
-  { path: 'products/getbyid/:productId', component: BuyComponent},
-  { path: 'products/getbyid/:productId/update', component: ProductUpdateComponent},
-  { path: 'generalContents/getbyid/:generalContentId', component: GeneralContentUpdateComponent},
-  { path: 'productContents/getbyid/:productContentId', component: ProductContentUpdateComponent},
+  { path: 'products/getbyid/:productId', component: BuyComponent, canActivate: [LoginGuard]},
+  { path: 'products/getbyid/:productId/update', component: ProductUpdateComponent, canActivate: [LoginGuard]},
+  { path: 'generalContents/getbyid/:generalContentId', component: GeneralContentUpdateComponent, canActivate: [LoginGuard]},
+  { path: 'productContents/getbyid/:productContentId', component: ProductContentUpdateComponent, canActivate: [LoginGuard]},
   { path: 'products/getproductsbygeneralcontentid/:generalContentId', component: GeneralContentDetailComponent},
-  { path: 'operationClaims/getbyid/:operationClaimId', component: OperationClaimUpdateComponent},
-  { path: 'userOperationClaims/getbyid/:userOperationClaimId', component: UserOperationClaimUpdateComponent},
-  { path: 'products/add', component: ProductAddComponent},
-  { path: 'generalContents/add', component: GeneralContentAddComponent},
-  { path: 'productContents/add', component: ProductContentAddComponent},
-  { path: 'operationClaims/add', component: OperationClaimAddComponent},
-  { path: 'userOperationClaims/add', component: UserOperationClaimAddComponent},
-  { path: 'login', component: LoginComponent},
+  { path: 'operationClaims/getbyid/:operationClaimId', component: OperationClaimUpdateComponent, canActivate: [LoginGuard]},
+  { path: 'userOperationClaims/getbyid/:userOperationClaimId', component: UserOperationClaimUpdateComponent, canActivate: [LoginGuard]},
+  { path: 'products/add', component: ProductAddComponent, canActivate: [LoginGuard]},
+  { path: 'generalContents/add', component: GeneralContentAddComponent, canActivate: [LoginGuard]},
+  { path: 'productContents/add', component: ProductContentAddComponent, canActivate: [LoginGuard]},
+  { path: 'operationClaims/add', component: OperationClaimAddComponent, canActivate: [LoginGuard]},
+  { path: 'userOperationClaims/add', component: UserOperationClaimAddComponent, canActivate: [LoginGuard]},
   { path: 'generalContents/getall', component: GeneralContentComponent },
   { path: 'operationClaims/getall', component: OperationClaimComponent },
   { path: 'userOperationClaims/getall', component: UserOperationClaimComponent },
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
   { path: 'communication', component: CommunicationComponent },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'adminPanel', component: AdminPanelComponent },

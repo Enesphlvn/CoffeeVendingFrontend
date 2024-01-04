@@ -42,7 +42,10 @@ export class GeneralContentAddComponent implements OnInit {
           this.toastrService.success(response.message, 'Başarılı');
         },
         (responseError) => {
-          if(responseError.error.message){
+          if (responseError.error.Message) {
+            this.toastrService.error('Yetkiniz yok');
+          }
+          else if(responseError.error.message){
             this.toastrService.error(responseError.error.message, 'Hata');
           }
           else if (responseError.error.ValidationErrors.length > 0) {

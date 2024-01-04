@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -19,8 +19,6 @@ import { BuyComponent } from './components/buy/buy.component';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { ProductAddComponent } from './components/product/product-add/product-add.component';
 import { GeneralContentAddComponent } from './components/general-content/general-content-add/general-content-add.component';
-
-import { ToastrModule } from 'ngx-toastr';
 import { OperationClaimComponent } from './components/operation-claim/operation-claim.component';
 import { OperationClaimAddComponent } from './components/operation-claim/operation-claim-add/operation-claim-add.component';
 import { ProductContentAddComponent } from './components/product-content/product-content-add/product-content-add.component';
@@ -33,6 +31,10 @@ import { GeneralContentUpdateComponent } from './components/general-content/gene
 import { ProductContentUpdateComponent } from './components/product-content/product-content-update/product-content-update.component';
 import { UserOperationClaimUpdateComponent } from './components/user-operation-claim/user-operation-claim-update/user-operation-claim-update.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+
+import { ToastrModule } from 'ngx-toastr';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { LoginComponent } from './components/login/login.component';
     GeneralContentUpdateComponent,
     ProductContentUpdateComponent,
     UserOperationClaimUpdateComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,11 +82,11 @@ import { LoginComponent } from './components/login/login.component';
       progressBar: false, // Toast mesajının altında bir ilerleme çubuğu görüntülenip görüntülenmeyeceğini belirtir.
       tapToDismiss: true, // Kullanıcının toast mesajını tıklayarak kapatıp kapatamayacağını belirtir.
       closeButton: false, // Her toast mesajının sağ üst köşesinde bir kapatma düğmesi görüntülenip görüntülenmeyeceğini belirtir.
-    })
-    ],
-  providers: [
-
+    }),
   ],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

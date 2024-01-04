@@ -51,11 +51,13 @@ export class UserOperationClaimAddComponent implements OnInit {
           this.toastrService.success(response.message, 'Başarılı');
         },
         (responseError) => {
-          console.log(responseError);
+          if (responseError.error.Message) {
+            this.toastrService.error('Yetkiniz yok');
+          }
         }
       );
     } else {
-      this.toastrService.error('Kullanıcı ve Rol seçmeden butona basmayın', 'Dikkat');
+      this.toastrService.error('Kullanıcı ve Rol seçmeden ekleme işlemi yapılmaz');
     }
   }
 

@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ProductService } from '../../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-add',
@@ -20,7 +21,8 @@ export class ProductAddComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -43,6 +45,7 @@ export class ProductAddComponent implements OnInit {
       this.productService.add(productModel).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı');
+          this.adminPanel();
         },
         (responseError) => {
           if (responseError.error.Message) {
@@ -61,5 +64,9 @@ export class ProductAddComponent implements OnInit {
     } else {
       this.toastrService.error('Formunuz eksik', 'Dikkat');
     }
+  }
+
+  adminPanel() {
+    this.router.navigate(['adminPanel']);
   }
 }

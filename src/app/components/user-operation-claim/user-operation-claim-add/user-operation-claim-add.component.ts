@@ -6,6 +6,7 @@ import { UserService } from '../../../services/user.service';
 import { OperationClaimService } from '../../../services/operation-claim.service';
 import { User } from '../../../models/user/user';
 import { OperationClaim } from '../../../models/operation-claim/operationClaim';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-operation-claim-add',
@@ -23,7 +24,8 @@ export class UserOperationClaimAddComponent implements OnInit {
     private userOperationClaimService: UserOperationClaimService,
     private toastrService: ToastrService,
     private userService: UserService,
-    private operationClaimService: OperationClaimService
+    private operationClaimService: OperationClaimService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -49,6 +51,7 @@ export class UserOperationClaimAddComponent implements OnInit {
       this.userOperationClaimService.add(useroperationClaimModel).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı');
+          this.adminPanel();
         },
         (responseError) => {
           if (responseError.error.Message) {
@@ -71,5 +74,9 @@ export class UserOperationClaimAddComponent implements OnInit {
     this.operationClaimService.getOperationClaims().subscribe((response) => {
       this.operationClaims = response.data;
     });
+  }
+
+  adminPanel() {
+    this.router.navigate(['adminPanel']);
   }
 }

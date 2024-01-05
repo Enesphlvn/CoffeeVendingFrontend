@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginModel } from '../models/auth/loginModel';
 import { Observable } from 'rxjs';
-import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponeModel';
 import { TokenModel } from '../models/auth/tokenModel';
 import { RegisterModel } from '../models/auth/registerModel';
+import { User } from '../models/user/user';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +23,11 @@ export class AuthService {
   register(user: RegisterModel): Observable<SingleResponseModel<TokenModel>> {
     let newPath = this.apiUrl + 'auth/register';
     return this.httpClient.post<SingleResponseModel<TokenModel>>(newPath, user);
+  }
+
+  getByMail(email: string): Observable<SingleResponseModel<User>> {
+    let newPath = this.apiUrl + 'auth/getbymail?email=' + email;
+    return this.httpClient.get<SingleResponseModel<User>>(newPath);
   }
 
   isAuthentication() {

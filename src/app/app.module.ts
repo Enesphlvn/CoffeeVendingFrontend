@@ -32,9 +32,10 @@ import { ProductContentUpdateComponent } from './components/product-content/prod
 import { UserOperationClaimUpdateComponent } from './components/user-operation-claim/user-operation-claim-update/user-operation-claim-update.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
+import { UserUpdateComponent } from './components/user-update/user-update.component';
 
 import { ToastrModule } from 'ngx-toastr';
-import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { RegisterComponent } from './components/register/register.component';
     UserOperationClaimUpdateComponent,
     LoginComponent,
     RegisterComponent,
+    UserUpdateComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,8 +82,8 @@ import { RegisterComponent } from './components/register/register.component';
       resetTimeoutOnDuplicate: true, // Tekrarlanan bir toast mesajı olduğunda süre sıfırlansın mı belirtir.
       newestOnTop: true, // Yeni toast mesajlarının en üstte mi yoksa en altta mı görüntüleneceğini belirtir.
       progressBar: false, // Toast mesajının altında bir ilerleme çubuğu görüntülenip görüntülenmeyeceğini belirtir.
-      tapToDismiss: true, // Kullanıcının toast mesajını tıklayarak kapatıp kapatamayacağını belirtir.
-      closeButton: false, // Her toast mesajının sağ üst köşesinde bir kapatma düğmesi görüntülenip görüntülenmeyeceğini belirtir.
+      // tapToDismiss: true, // Kullanıcının toast mesajını tıklayarak kapatıp kapatamayacağını belirtir.
+      closeButton: true, // Her toast mesajının sağ üst köşesinde bir kapatma düğmesi görüntülenip görüntülenmeyeceğini belirtir.
     }),
   ],
   providers: [

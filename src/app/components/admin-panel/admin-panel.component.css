@@ -20,7 +20,11 @@ td {
   border: solid 1px #d9c3a9;
 }
 
-.col-md-8{
+.btn-info {
+  width: 15%;
+}
+
+.col-md-10{
   margin-top: 13px;
 }
 

@@ -23,6 +23,7 @@ import { UserOperationClaimUpdateComponent } from './components/user-operation-c
 import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './guards/login.guard';
 import { RegisterComponent } from './components/register/register.component';
+import { UserUpdateComponent } from './components/user-update/user-update.component';
 
 const routes: Routes = [
   { path: '', component: ProductComponent },
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'adminPanel', component: AdminPanelComponent },
   { path: 'productUpdate', component: ProductUpdateComponent },
+  { path: 'userUpdate', component: UserUpdateComponent },
 ];
 
 @NgModule({

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GeneralContentService } from '../../../services/general-content.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-general-content-add',
@@ -16,7 +17,8 @@ export class GeneralContentAddComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private generalContentService: GeneralContentService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +42,7 @@ export class GeneralContentAddComponent implements OnInit {
       this.generalContentService.add(generalContentModel).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı');
+          this.adminPanel();
         },
         (responseError) => {
           if (responseError.error.Message) {
@@ -58,5 +61,9 @@ export class GeneralContentAddComponent implements OnInit {
     } else {
       this.toastrService.error('Formunuz eksik', 'Dikkat');
     }
+  }
+
+  adminPanel() {
+    this.router.navigate(['adminPanel']);
   }
 }

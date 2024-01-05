@@ -24,13 +24,8 @@
             </div>
             <form [formGroup]="orderAddForm" class="form">
                 <div class="form-group mt-2 py-1">
-                    <label for="userId" class="form-label">Kullanıcı</label>
-                    <select id="userId" class="form-select" formControlName="userId">
-                        <option [ngValue]="null">Kullanıcı seçiniz</option>
-                        <option *ngFor="let user of users" [value]="user.id">
-                            {{user.firstName}} {{user.lastName}}
-                        </option>
-                    </select>
+                    <label for="userId" class="form-label">Müşteri Adı</label>
+                    <input type="text" class="form-control" formControlName="userName" readonly>
                 </div>
                 <div class="mb-2 mt-1 py-1">
                     <label class="form-label">Ödenecek tutar</label>

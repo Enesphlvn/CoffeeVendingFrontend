@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
       let loginModel = Object.assign({}, this.loginForm.value);
       this.authService.login(loginModel).subscribe(
         (response) => {
-          this.toastrService.success(response.message);
           localStorage.setItem('token', response.data.token);
           this.homePage();
         },
@@ -55,11 +54,11 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  register(){
+  register() {
     this.router.navigate(['register']);
   }
 
-  homePage(){
+  homePage() {
     this.router.navigate(['']);
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OperationClaimService } from '../../../services/operation-claim.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-operation-claim-add',
@@ -15,7 +16,8 @@ export class OperationClaimAddComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private operationClaimService: OperationClaimService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router: Router 
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +37,7 @@ export class OperationClaimAddComponent implements OnInit {
       this.operationClaimService.add(operationClaimModel).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı');
+          this.adminPanel();
         },
         (responseError) => {
           if (responseError.error.Message) {
@@ -53,5 +56,9 @@ export class OperationClaimAddComponent implements OnInit {
     } else {
       this.toastrService.error('Formunuz eksik', 'Dikkat');
     }
+  }
+
+  adminPanel() {
+    this.router.navigate(['adminPanel']);
   }
 }

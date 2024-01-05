@@ -11,6 +11,7 @@ import { OperationClaim } from '../../models/operation-claim/operationClaim';
 import { UserOperationClaim } from '../../models/user-operation-claim/userOperationClaim';
 import { UserOperationClaimService } from '../../services/user-operation-claim.service';
 import { ToastrService } from 'ngx-toastr';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-admin-panel',
@@ -109,9 +110,9 @@ export class AdminPanelComponent implements OnInit {
     this.router.navigate(['userOperationClaims/add']);
   }
 
-  logOut(){
-    localStorage.removeItem('token');
-    this.router.navigate(['login']);
-    this.toastrService.error('Sistemden çıkış yapıldı');
-  }
+  // logOut(){
+  //   localStorage.removeItem('token');
+  //   this.router.navigate(['login']);
+  //   this.toastrService.error('Sistemden çıkış yapıldı');
+  // }
 }

@@ -4,7 +4,7 @@ import { ProductContentService } from '../../../services/product-content.service
 import { ProductService } from '../../../services/product.service';
 import { GeneralContentService } from '../../../services/general-content.service';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductContentUpdate } from '../../../models/product-content/productContentUpdate';
 import { Product } from '../../../models/product/product';
 import { GeneralContent } from '../../../models/general-content/generalContent';
@@ -28,7 +28,8 @@ export class ProductContentUpdateComponent implements OnInit {
     private productService: ProductService,
     private generalContentService: GeneralContentService,
     private toastrService: ToastrService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -56,6 +57,7 @@ export class ProductContentUpdateComponent implements OnInit {
       this.productContentService.update(productContentUpdateModel).subscribe(
         (response) => {
         this.toastrService.success(response.message);
+        this.adminPanel();
       },
       (responseError) => {
         if (responseError.error.Message) {
@@ -89,5 +91,9 @@ export class ProductContentUpdateComponent implements OnInit {
     this.generalContentService.getGeneralContents().subscribe((response) => {
       this.generalContents = response.data;
     })
+  }
+
+  adminPanel() {
+    this.router.navigate(['adminPanel']);
   }
 }

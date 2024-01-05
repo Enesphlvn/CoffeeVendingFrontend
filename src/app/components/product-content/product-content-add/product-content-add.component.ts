@@ -6,6 +6,7 @@ import { ProductService } from '../../../services/product.service';
 import { GeneralContentService } from '../../../services/general-content.service';
 import { Product } from '../../../models/product/product';
 import { GeneralContent } from '../../../models/general-content/generalContent';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-content-add',
@@ -23,7 +24,8 @@ export class ProductContentAddComponent implements OnInit {
     private productContentService: ProductContentService,
     private toastrService: ToastrService,
     private productService: ProductService,
-    private generalContentService: GeneralContentService
+    private generalContentService: GeneralContentService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +49,7 @@ export class ProductContentAddComponent implements OnInit {
       this.productContentService.add(productContentModel).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı');
+          this.adminPanel();
         },
         (responseError) => {
           if (responseError.error.Message) {
@@ -74,5 +77,9 @@ export class ProductContentAddComponent implements OnInit {
     this.generalContentService.getGeneralContents().subscribe((response) => {
       this.generalContents = response.data;
     })
+  }
+
+  adminPanel() {
+    this.router.navigate(['adminPanel']);
   }
 }

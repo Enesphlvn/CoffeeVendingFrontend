@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OperationClaimService } from '../../../services/operation-claim.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { OperationClaim } from '../../../models/operation-claim/operationClaim';
 
@@ -20,7 +20,8 @@ export class OperationClaimUpdateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private operationClaimService: OperationClaimService,
     private activatedRoute: ActivatedRoute,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router: Router 
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +48,7 @@ export class OperationClaimUpdateComponent implements OnInit {
       this.operationClaimService.update(operationClaimUpdateModel).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı');
+          this.adminPanel();
         },
         (responseError) => {
           if (responseError.error.Message) {
@@ -69,5 +71,9 @@ export class OperationClaimUpdateComponent implements OnInit {
       this.operationClaim = response.data;
       this.createOperationClaimUpdateForm();
     });
+  }
+
+  adminPanel() {
+    this.router.navigate(['adminPanel']);
   }
 }

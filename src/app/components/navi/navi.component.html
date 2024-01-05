@@ -10,27 +10,40 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav fw-bold">
                 <li class="nav-item">
-                    <a class="mainOption renk nav-link" (click)="homePage()">Anasayfa</a>
+                    <a class="mainOption nav-link" (click)="homePage()">Anasayfa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="option renk nav-link" (click)="aboutUs()">Kahve ve Biz</a>
+                    <a class="option nav-link" (click)="aboutUs()">Kahve ve Biz</a>
                 </li>
                 <li class="nav-item">
-                    <a class="option renk nav-link" (click)="coffeeSupplies()">Malzemeler</a>
+                    <a class="option nav-link" (click)="coffeeSupplies()">Malzemeler</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="option nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Kullanıcı Adı
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item">Profil güncelle</a></li>
-                        <li><a class="dropdown-item">Şifre güncelle</a></li>
-                    </ul>
+                <li *ngIf="adminCheck" class="nav-item">
+                    <a class="nav-link adminPanel" (click)="adminPanel()">Admin Paneli</a>
                 </li>
-                <li class="nav-item">
-                    <a class="option renk nav-link" (click)="adminPanel()">Admin Paneli</a>
-                </li>
+                <div class="profile" *ngIf="name">
+                    <div>
+                        <img class="profileImage"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png">
+                    </div>
+                    <div>
+                        <li class="nav-item dropdown">
+                            <a class="option nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                {{name}}
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a (click)="userUpdate()" class="dropdown-item">Profil güncelle</a></li>
+                                <li><a class="dropdown-item">Şifre güncelle</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                    <div>
+                        <li class="nav-item">
+                            <a class="option nav-link" (click)="logOut()">Çıkış Yap</a>
+                        </li>
+                    </div>
+                </div>
             </ul>
         </div>
     </div>

@@ -7,6 +7,7 @@ import { User } from '../../models/user/user';
 import { OrderService } from '../../services/order.service';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../services/user.service';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-buy',
@@ -21,6 +22,8 @@ export class BuyComponent implements OnInit {
   dataLoaded: boolean = false;
   isLoading: boolean = false;
   successMessage: string;
+  name: string = '';
+  userEmail: string;
 
   constructor(
     private productService: ProductService,
@@ -33,6 +36,7 @@ export class BuyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.check();
     this.activatedRoute.params.subscribe((params) => {
       if (params['productId']) {
         this.getProductById(params['productId']);
@@ -44,9 +48,25 @@ export class BuyComponent implements OnInit {
   createOrderAddForm() {
     this.orderAddForm = this.formBuilder.group({
       userId: [null, Validators.required],
+      userName: [null],
       productId: [this.product.id, Validators.required],
       amountPaid: [null, Validators.required],
     });
+
+    this.getUserIdAndUpdateForm();
+  }
+
+  getUserIdAndUpdateForm() {
+    this.userService.getByMail(this.userEmail).subscribe(
+      (response) => {
+      const userName = response.data.firstName + ' ' + response.data.lastName;
+      const userId = response.data.id;
+      this.orderAddForm.get('userId').setValue(userId);
+      this.orderAddForm.get('userName').setValue(userName);
+    },
+    (responseError) => {
+      this.toastrService.error('Kullanıcı adı alınamadı', 'Hata')
+    })
   }
 
   add() {
@@ -55,7 +75,7 @@ export class BuyComponent implements OnInit {
       this.orderService.add(orderModel).subscribe(
         (response) => {
           this.isLoading = true;
-          this.toastrService.info('Siparişiniz hazırlanıyor...', 'Lütfen Bekleyin')
+          this.toastrService.info('Siparişiniz hazırlanıyor...', 'Lütfen Bekleyin');
           setTimeout(() => {
             this.successMessage = response.message;
             this.isLoading = false;
@@ -65,7 +85,7 @@ export class BuyComponent implements OnInit {
                 location.reload();
               }, 3000);
             }
-          }, 4000)
+          }, 4000);
         },
         (responseError) => {
           this.isLoading = false;
@@ -74,8 +94,7 @@ export class BuyComponent implements OnInit {
           }
           else if (responseError.error.ValidationErrors.length > 0) {
             for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
-              this.toastrService.error(
-                responseError.error.ValidationErrors[i].ErrorMessage, 'Doğrulama Hatası');
+              this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage, 'Doğrulama Hatası');
             }
           }
         }
@@ -90,7 +109,7 @@ export class BuyComponent implements OnInit {
       this.users = response.data;
     });
   }
-  
+
   getProducts() {
     this.productService.getProducts().subscribe((response) => {
       this.products = response.data;
@@ -104,5 +123,18 @@ export class BuyComponent implements OnInit {
       this.createOrderAddForm();
       this.dataLoaded = true;
     });
+  }
+
+  check() {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const decoded: any = jwtDecode(token);
+
+      if (!this.name && decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']) {
+        this.name = decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+        this.userEmail = decoded["email"];
+      }
+    }
   }
 }

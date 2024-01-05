@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GeneralContent } from '../../../models/general-content/generalContent';
 import { GeneralContentService } from '../../../services/general-content.service';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-general-content-update',
@@ -20,7 +20,8 @@ export class GeneralContentUpdateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private generalContentService: GeneralContentService,
     private toastrService: ToastrService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -51,6 +52,7 @@ export class GeneralContentUpdateComponent implements OnInit {
       this.generalContentService.update(generalContentUpdateModel).subscribe(
         (response) => {
           this.toastrService.success(response.message);
+          this.adminPanel();
         },
         (responseError) => {
           if (responseError.error.Message) {
@@ -73,5 +75,9 @@ export class GeneralContentUpdateComponent implements OnInit {
       this.generalContent = response.data;
       this.createGeneralContentUpdateForm();
     });
+  }
+
+  adminPanel() {
+    this.router.navigate(['adminPanel']);
   }
 }

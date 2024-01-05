@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <main class="form-signin w-100 m-auto">
+            <form [formGroup]="userUpdateForm">
+                <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/9977/9977360.png" alt="" width="72"
+                    height="57">
+                <h1 class="h3 mb-3 fw-normal">Profili Güncelle</h1>
+
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder>
+                    <label for="firstName">Ad</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder>
+                    <label for="lastName">Soyad</label>
+                </div>
+                <button class="btn btn-primary w-100 py-2" (click)="update()">Güncelle</button>
+            </form>
+        </main>
+    </div>
+</div>
+
+<div class="footer">
+    <app-footer></app-footer>
+</div>

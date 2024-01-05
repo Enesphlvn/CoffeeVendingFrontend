@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { User } from '../models/user/user';
 import { SingleResponseModel } from '../models/singleResponeModel';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +22,15 @@ export class UserService {
   getById(userId: number): Observable<SingleResponseModel<User>> {
     let newPath = this.apiUrl + 'users/getbyid?userId=' + userId;
     return this.httpClient.get<SingleResponseModel<User>>(newPath);
+  }
+
+  getByMail(email: string): Observable<SingleResponseModel<User>> {
+    let newPath = this.apiUrl + 'users/getbymail?email=' + email;
+    return this.httpClient.get<SingleResponseModel<User>>(newPath);
+  }
+
+  update(user: User): Observable<ResponseModel>{
+    let newPath = this.apiUrl + 'users/update';
+    return this.httpClient.put<ResponseModel>(newPath, user);
   }
 }

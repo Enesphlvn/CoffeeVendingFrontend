@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserOperationClaimUpdate } from '../../../models/user-operation-claim/userOperationClaimUpdate';
 import { OperationClaimService } from '../../../services/operation-claim.service';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserOperationClaimService } from '../../../services/user-operation-claim.service';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/user/user';
@@ -28,7 +28,8 @@ export class UserOperationClaimUpdateComponent {
     private operationClaimService: OperationClaimService,
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +56,7 @@ export class UserOperationClaimUpdateComponent {
       this.userOperationClaimService.update(userOperationClaimUpdateModel).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı');
+          this.adminPanel();
         },
         (responseError) => {
           if (responseError.error.Message) {
@@ -89,5 +91,9 @@ export class UserOperationClaimUpdateComponent {
     this.operationClaimService.getOperationClaims().subscribe((response) => {
       this.operationClaims = response.data;
     });
+  }
+
+  adminPanel() {
+    this.router.navigate(['adminPanel']);
   }
 }

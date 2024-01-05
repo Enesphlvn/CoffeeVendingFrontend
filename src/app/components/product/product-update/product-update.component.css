@@ -5,3 +5,7 @@
 .container {
   margin-top: 120px;
 }
+
+textarea {
+  resize: none;
+}

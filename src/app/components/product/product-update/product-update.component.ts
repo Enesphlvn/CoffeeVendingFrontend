@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../../models/product/product';
 
 @Component({
@@ -20,7 +20,8 @@ export class ProductUpdateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private productService: ProductService,
     private toastrService: ToastrService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +48,7 @@ export class ProductUpdateComponent implements OnInit {
       this.productService.update(productUpdateModel).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı');
+          this.adminPanel();
         },
         (responseError) => {
           if (responseError.error.Message) {
@@ -69,5 +71,9 @@ export class ProductUpdateComponent implements OnInit {
       this.product = response.data;
       this.createProductUpdateForm();
     });
+  }
+
+  adminPanel() {
+    this.router.navigate(['adminPanel']);
   }
 }

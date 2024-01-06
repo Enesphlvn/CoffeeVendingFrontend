@@ -59,14 +59,15 @@ export class BuyComponent implements OnInit {
   getUserIdAndUpdateForm() {
     this.userService.getByMail(this.userEmail).subscribe(
       (response) => {
-      const userName = response.data.firstName + ' ' + response.data.lastName;
-      const userId = response.data.id;
-      this.orderAddForm.get('userId').setValue(userId);
-      this.orderAddForm.get('userName').setValue(userName);
-    },
-    (responseError) => {
-      this.toastrService.error('Kullanıcı adı alınamadı', 'Hata')
-    })
+        const userName = response.data.firstName + ' ' + response.data.lastName;
+        const userId = response.data.id;
+        this.orderAddForm.get('userId').setValue(userId);
+        this.orderAddForm.get('userName').setValue(userName);
+      },
+      (responseError) => {
+        this.toastrService.error('Kullanıcı adı alınamadı', 'Hata');
+      }
+    );
   }
 
   add() {
@@ -75,7 +76,7 @@ export class BuyComponent implements OnInit {
       this.orderService.add(orderModel).subscribe(
         (response) => {
           this.isLoading = true;
-          this.toastrService.info('Siparişiniz hazırlanıyor...', 'Lütfen Bekleyin');
+          this.warningMessage();
           setTimeout(() => {
             this.successMessage = response.message;
             this.isLoading = false;
@@ -90,11 +91,20 @@ export class BuyComponent implements OnInit {
         (responseError) => {
           this.isLoading = false;
           if (responseError.error.success === false) {
-            this.toastrService.error(responseError.error.message, 'Ödeme Başarısız');
-          }
-          else if (responseError.error.ValidationErrors.length > 0) {
-            for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
-              this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage, 'Doğrulama Hatası');
+            this.toastrService.error(
+              responseError.error.message,
+              'Ödeme Başarısız'
+            );
+          } else if (responseError.error.ValidationErrors.length > 0) {
+            for (
+              let i = 0;
+              i < responseError.error.ValidationErrors.length;
+              i++
+            ) {
+              this.toastrService.error(
+                responseError.error.ValidationErrors[i].ErrorMessage,
+                'Doğrulama Hatası'
+              );
             }
           }
         }
@@ -131,10 +141,22 @@ export class BuyComponent implements OnInit {
     if (token) {
       const decoded: any = jwtDecode(token);
 
-      if (!this.name && decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']) {
-        this.name = decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
-        this.userEmail = decoded["email"];
+      if (
+        !this.name &&
+        decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']
+      ) {
+        this.name =
+          decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+        this.userEmail = decoded['email'];
       }
     }
+  }
+
+  warningMessage() {
+    this.toastrService.info('Siparişiniz hazırlanıyor...', 'Lütfen Bekleyin', {
+      timeOut: 4000,
+      extendedTimeOut: 4000,
+      progressBar: true,
+    });
   }
 }

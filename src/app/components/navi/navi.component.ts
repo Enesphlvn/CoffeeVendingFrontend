@@ -95,4 +95,8 @@ export class NaviComponent implements OnInit {
   userUpdate() {
     this.router.navigate(['userUpdate'])
   }
+
+  passwordUpdate() {
+    this.router.navigate(['passwordUpdate']);
+  }
 }

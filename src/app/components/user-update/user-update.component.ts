@@ -41,7 +41,7 @@ export class UserUpdateComponent implements OnInit {
     });
     this.dataLoaded = true;
   }
-  
+
   update() {
     if (this.userUpdateForm.valid) {
       let userUpdateModel = {
@@ -49,16 +49,23 @@ export class UserUpdateComponent implements OnInit {
         email: this.email,
         ...this.userUpdateForm.value,
       };
-  
+
       this.userService.update(userUpdateModel).subscribe(
         (response) => {
           this.toastrService.success(response.message);
-          this.deleteToken();
+          this.warningMessage();
         },
         (responseError) => {
           if (responseError.error.ValidationErrors.length > 0) {
-            for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
-              this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage, 'Doğrulama hatası');
+            for (
+              let i = 0;
+              i < responseError.error.ValidationErrors.length;
+              i++
+            ) {
+              this.toastrService.error(
+                responseError.error.ValidationErrors[i].ErrorMessage,
+                'Doğrulama hatası'
+              );
             }
           }
         }
@@ -67,7 +74,7 @@ export class UserUpdateComponent implements OnInit {
       this.toastrService.error('Formunuz eksik', 'Dikkat');
     }
   }
-  
+
   getByMail(email: string) {
     this.authService.getByMail(email).subscribe((response) => {
       if (response) {
@@ -87,18 +94,26 @@ export class UserUpdateComponent implements OnInit {
   check() {
     const token = localStorage.getItem('token');
 
-    if (token != null) {
+    if (token) {
       if (!this.email) {
         const decoded: any = jwtDecode(token);
-        this.email = decoded["email"];
+        this.email = decoded['email'];
       }
     }
 
     this.getByMail(this.email);
   }
 
-  deleteToken(){
+  warningMessage() {
     localStorage.removeItem('token');
-    this.toastrService.info('Eğer yaptığınız değişikliklerin kaydolmasını istiyorsanız, hesabınızdan çıkıp tekrar giriş yapmalısınız.');
+    this.toastrService.info(
+      'Değişikliklerinizin kayıt olmasını istiyorsanız lütfen hesabınızdan çıkış yapıp tekrar giriniz.',
+      'Tekrar Giriş Yapın',
+      {
+        timeOut: 12000,
+        extendedTimeOut: 12000,
+        progressBar: true,
+      }
+    );
   }
 }

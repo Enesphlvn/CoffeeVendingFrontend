@@ -5,6 +5,7 @@ import { ListResponseModel } from '../models/listResponseModel';
 import { User } from '../models/user/user';
 import { SingleResponseModel } from '../models/singleResponeModel';
 import { ResponseModel } from '../models/responseModel';
+import { PasswordUpdate } from '../models/user/passwordUpdate';
 
 @Injectable({
   providedIn: 'root',
@@ -29,8 +30,13 @@ export class UserService {
     return this.httpClient.get<SingleResponseModel<User>>(newPath);
   }
 
-  update(user: User): Observable<ResponseModel>{
+  update(user: User): Observable<ResponseModel> {
     let newPath = this.apiUrl + 'users/update';
     return this.httpClient.put<ResponseModel>(newPath, user);
+  }
+
+  passwordUpdate(password: PasswordUpdate): Observable<ResponseModel> {
+    let newPath = this.apiUrl + 'users/updatepassword';
+    return this.httpClient.put<ResponseModel>(newPath, password);
   }
 }

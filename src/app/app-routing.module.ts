@@ -24,6 +24,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './guards/login.guard';
 import { RegisterComponent } from './components/register/register.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
+import { PasswordUpdateComponent } from './components/password-update/password-update.component';
 
 const routes: Routes = [
   { path: '', component: ProductComponent },
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'adminPanel', component: AdminPanelComponent },
   { path: 'productUpdate', component: ProductUpdateComponent },
   { path: 'userUpdate', component: UserUpdateComponent },
+  { path: 'passwordUpdate', component: PasswordUpdateComponent },
 ];
 
 @NgModule({

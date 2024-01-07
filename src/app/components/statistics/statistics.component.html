@@ -1,0 +1,117 @@
+<div class="container">
+    <div class="text-center">
+        <div *ngIf="dataLoaded === false" class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-light">
+                <thead>
+                    <tr *ngIf="dataLoaded === true">
+                        <th>Günlük kazanç</th>
+                        <th>Haftalık kazanç</th>
+                        <th>Aylık kazanç</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="dataLoaded === true">
+                        <td>{{statistics?.dailyRevenue}}₺</td>
+                        <td>{{statistics?.weeklyRevenue}}₺</td>
+                        <td>{{statistics?.monthlyRevenue}}₺</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6">
+            <table class="table table-light">
+                <thead>
+                    <tr *ngIf="dataLoaded === true">
+                        <th>Günlük Satış Miktarı</th>
+                        <th>Haftalık Satış Miktarı</th>
+                        <th>Aylık Satış Miktarı</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="dataLoaded === true">
+                        <td>{{statistics?.dailyOrderCount}} adet</td>
+                        <td>{{statistics?.weeklyOrderCount}} adet</td>
+                        <td>{{statistics?.monthlyOrderCount}} adet</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-light">
+                <thead>
+                    <tr *ngIf="dataLoaded === true">
+                        <th>En çok satılan ürünler</th>
+                        <th>En az satılan ürünler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="dataLoaded === true">
+                        <td>{{statistics?.topSoldProduct}}</td>
+                        <td>{{statistics?.leastSoldProduct}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6">
+            <table class="table table-light">
+                <thead>
+                    <tr *ngIf="dataLoaded === true">
+                        <th>En çok sipariş veren kullanıcılar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="dataLoaded === true">
+                        <td>{{statistics?.topOrderingUserNames}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-light">
+                <thead>
+                    <tr *ngIf="dataLoaded === true">
+                        <th>Depoda azalan malzemeler</th>
+                        <th>Stokta olmayan ürünler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="dataLoaded === true">
+                        <td>{{statistics?.lowStockGeneralContent}}</td>
+                        <td>{{statistics?.outOfStockProducts}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6">
+            <table class="table table-light">
+                <thead>
+                    <tr *ngIf="dataLoaded === true">
+                        <th>En çok sipariş verilen saatler</th>
+                        <th>En çok sipariş verilen günler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="dataLoaded === true">
+                        <td>{{statistics?.busiestOrderHours}}</td>
+                        <td>{{statistics?.busiestOrderDaysOfWeek}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

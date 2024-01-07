@@ -12,9 +12,7 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class NaviComponent implements OnInit {
   loginCheck: boolean = false;
-  adminCheck: boolean = false;
   name: string = "";
-  admin: string = "";
   
   private destroy$ = new Subject<void>();
 
@@ -41,37 +39,15 @@ export class NaviComponent implements OnInit {
       }
 
       this.loginCheck = true;
-      this.checkRole();
 
     } else {
       this.loginCheck = false;
-      this.adminCheck = false;
-    }
-  }
-
-  checkRole(){
-    const token = localStorage.getItem('token');
-
-    if (token) {
-      const decoded: any = jwtDecode(token);
-
-      if (!this.admin && decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]) {
-        this.admin = decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
-
-        if (this.admin === 'admin') {
-          this.adminCheck = true;
-        }
-        else {
-          this.adminCheck = false;
-        }
-      }
     }
   }
 
   logOut() {
     localStorage.removeItem('token');
     this.name = "";
-    this.adminCheck = false;
     this.router.navigate(['login']);
     this.toastrService.error('Sistemden çıkış yapıldı');
   }
@@ -86,10 +62,6 @@ export class NaviComponent implements OnInit {
 
   coffeeSupplies() {
     this.router.navigate(['generalContents/getall']);
-  }
-
-  adminPanel() {
-    this.router.navigate(['adminPanel']);
   }
 
   userUpdate() {

@@ -37,6 +37,7 @@ import { UserUpdateComponent } from './components/user-update/user-update.compon
 
 import { ToastrModule } from 'ngx-toastr';
 import { PasswordUpdateComponent } from './components/password-update/password-update.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { PasswordUpdateComponent } from './components/password-update/password-u
     RegisterComponent,
     UserUpdateComponent,
     PasswordUpdateComponent,
+    StatisticsComponent,
   ],
   imports: [
     BrowserModule,

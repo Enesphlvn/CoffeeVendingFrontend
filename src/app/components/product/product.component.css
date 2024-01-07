@@ -10,6 +10,10 @@
   margin-top: 420px;
 }
 
+.w-20 {
+  margin-right: 20px;
+}
+
 .productDiv {
   border: 1px dashed black;
   border-radius: 30px;

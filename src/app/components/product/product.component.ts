@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product/product';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-product',
@@ -13,7 +13,10 @@ export class ProductComponent implements OnInit {
   products: Product[];
   dataLoaded: boolean = false;
   filterText: string = '';
-  isExpanded: boolean = false;
+  name: string = '';
+  admin: string = '';
+  loginCheck: boolean = false;
+  adminCheck: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -22,6 +25,7 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.check();
     this.getProducts();
   }
 
@@ -32,7 +36,48 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  toggleSearch() {
-    this.isExpanded = !this.isExpanded;
+  check() {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const decoded: any = jwtDecode(token);
+
+      if (!this.name && decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']) {
+        this.name = decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+      }
+
+      this.loginCheck = true;
+      this.checkRole();
+
+    } else {
+      this.loginCheck = false;
+    }
+  }
+
+  checkRole(){
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const decoded: any = jwtDecode(token);
+
+      if (!this.admin && decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]) {
+        this.admin = decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+
+        if (this.admin === 'admin') {
+          this.adminCheck = true;
+        }
+        else {
+          this.adminCheck = false;
+        }
+      }
+    }
+  }
+
+  login() {
+    this.router.navigate(['login']);
+  }
+
+  adminPanel() {
+    this.router.navigate(['adminPanel']);
   }
 }

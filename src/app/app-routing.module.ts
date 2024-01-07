@@ -25,6 +25,7 @@ import { LoginGuard } from './guards/login.guard';
 import { RegisterComponent } from './components/register/register.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
 import { PasswordUpdateComponent } from './components/password-update/password-update.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 const routes: Routes = [
   { path: '', component: ProductComponent },
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: 'productUpdate', component: ProductUpdateComponent },
   { path: 'userUpdate', component: UserUpdateComponent },
   { path: 'passwordUpdate', component: PasswordUpdateComponent },
+  { path: 'statistics', component: StatisticsComponent },
 ];
 
 @NgModule({

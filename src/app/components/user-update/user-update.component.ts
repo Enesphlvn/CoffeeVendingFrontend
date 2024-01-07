@@ -52,7 +52,6 @@ export class UserUpdateComponent implements OnInit {
 
       this.userService.update(userUpdateModel).subscribe(
         (response) => {
-          this.toastrService.success(response.message);
           this.warningMessage();
         },
         (responseError) => {
@@ -106,7 +105,7 @@ export class UserUpdateComponent implements OnInit {
 
   warningMessage() {
     localStorage.removeItem('token');
-    this.toastrService.info(
+    this.toastrService.success(
       'Değişikliklerinizin kayıt olmasını istiyorsanız lütfen hesabınızdan çıkış yapıp tekrar giriniz.',
       'Tekrar Giriş Yapın',
       {

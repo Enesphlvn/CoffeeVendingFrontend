@@ -11,7 +11,6 @@ import { OperationClaim } from '../../models/operation-claim/operationClaim';
 import { UserOperationClaim } from '../../models/user-operation-claim/userOperationClaim';
 import { UserOperationClaimService } from '../../services/user-operation-claim.service';
 import { ToastrService } from 'ngx-toastr';
-import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-admin-panel',
@@ -25,13 +24,6 @@ export class AdminPanelComponent implements OnInit {
   productContents: ProductContent[];
   userOperationClaims: UserOperationClaim[];
   dataLoaded: boolean = false;
-  tableStatus: { [key: string]: boolean } = {
-    product: false,
-    generalContent: false,
-    productContent: false,
-    operationClaim: false,
-    userOperationClaim: false,
-  };
 
   constructor(
     private productService: ProductService,
@@ -86,10 +78,6 @@ export class AdminPanelComponent implements OnInit {
     });
   }
 
-  toggleTable(tableName: string) {
-    this.tableStatus[tableName] = !this.tableStatus[tableName];
-  }
-
   productAdd(){
     this.router.navigate(['products/add']);
   }
@@ -110,9 +98,7 @@ export class AdminPanelComponent implements OnInit {
     this.router.navigate(['userOperationClaims/add']);
   }
 
-  // logOut(){
-  //   localStorage.removeItem('token');
-  //   this.router.navigate(['login']);
-  //   this.toastrService.error('Sistemden çıkış yapıldı');
-  // }
+  statistics() {
+    this.router.navigate(['statistics']);
+  }
 }

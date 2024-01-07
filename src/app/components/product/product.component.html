@@ -5,14 +5,18 @@
         </div>
     </div>
     <div *ngIf="dataLoaded === true" class="row">
-        <div class="search-container">
+        <div class="search-container col-md-6">
             <div class="search-input-container">
-                <i class="search-icon" (click)="toggleSearch()">
+                <i class="search-icon">
                     <img class="searchImage" src="assets/icons8-search-50.png">
                 </i>
-                <input *ngIf="isExpanded" type="text" [(ngModel)]="filterText" class="form-control expanded"
+                <input type="text" [(ngModel)]="filterText" class="form-control expanded"
                     id="filterText" placeholder="ürün ismi giriniz">
             </div>
+        </div>
+        <div class="col-md-6 text-end"> 
+            <button *ngIf="!loginCheck" (click)="login()" class="btn btn-success w-20 py-2">Giriş Yap/Kayıt Ol</button>
+            <button *ngIf="adminCheck" (click)="adminPanel()" class="btn btn-info w-20 py-2">Admin Paneli</button>
         </div>
         <div class="col-md-4 mb-3" *ngFor="let product of products | filterPipe:filterText">
             <div class="productDiv">

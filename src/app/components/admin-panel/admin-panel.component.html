@@ -4,28 +4,23 @@
     </div>
 </div>
 <div *ngIf="dataLoaded === true" class="container">
-    <div>
-        <div class="text-center">
-            <button class="btn btn-info btn-lg">İstasistik</button>
-        </div>
-        <div class="text-center mt-3">
-            <p>Lütfen işlem yapmak istediğiniz tablo ismine tıklayın</p>
-        </div>
-    </div>
-    <hr>
     <div class="row">
         <div class="col-md-4 text-center product">
-            <div class="text-center" (click)="toggleTable('product')">
-                <h4>Product Table</h4>
-            </div>
-            <table class="table table-light table-hover" *ngIf="tableStatus['product']">
+            <table class="table table-light">
                 <thead>
+                    <tr>
+                        <th colspan="4" class="text-center">
+                            <div class="text-center">
+                                <h4 class="title">Ürün Tablosu</h4>
+                            </div>
+                        </th>
+                    </tr>
                     <tr *ngIf="dataLoaded === true">
                         <th>Id</th>
-                        <th>Name</th>
-                        <th>Price</th>
+                        <th>Ürün adı</th>
+                        <th>Fiyat</th>
                         <th class="buttonSize">
-                            <button (click)="productAdd()" class="btnAdd">Add New</button>
+                            <button (click)="productAdd()" class="btnAdd">Yeni Ekle</button>
                         </th>
                     </tr>
                 </thead>
@@ -36,7 +31,7 @@
                         <td>{{product.price}}₺</td>
                         <td class="buttonSize">
                             <button routerLink="/products/getbyid/{{product.id}}/update"
-                                class="btnCustom">Update</button>
+                                class="btnCustom">Güncelle</button>
                         </td>
                     </tr>
                 </tbody>
@@ -44,17 +39,21 @@
         </div>
 
         <div class="col-md-4 text-center generalContent">
-            <div class="text-center" (click)="toggleTable('generalContent')">
-                <h4>General Content Table</h4>
-            </div>
-            <table class="table table-light table-hover" *ngIf="tableStatus['generalContent']">
+            <table class="table table-light">
                 <thead>
+                    <tr>
+                        <th colspan="4" class="text-center">
+                            <div class="text-center">
+                                <h4 class="title">Genel İçerik Tablosu</h4>
+                            </div>
+                        </th>
+                    </tr>
                     <tr *ngIf="dataLoaded === true">
                         <th>Id</th>
-                        <th>Name</th>
-                        <th>Critic Level</th>
+                        <th>İçerik adı</th>
+                        <th>Kritik Seviye</th>
                         <th class="buttonSize">
-                            <button (click)="generalContentAdd()" class="btnAdd">Add New</button>
+                            <button (click)="generalContentAdd()" class="btnAdd">Yeni Ekle</button>
                         </th>
                     </tr>
                 </thead>
@@ -65,7 +64,7 @@
                         <td>{{generalContent.isCritialLevel}}</td>
                         <td class="buttonSize">
                             <button routerLink="/generalContents/getbyid/{{generalContent.id}}"
-                                class="btnCustom">Update</button>
+                                class="btnCustom">Güncelle</button>
                         </td>
                     </tr>
                 </tbody>
@@ -73,18 +72,22 @@
         </div>
 
         <div class="col-md-4 text-center productContent">
-            <div class="text-center" (click)="toggleTable('productContent')">
-                <h4>Product Content Table</h4>
-            </div>
-            <table class="table table-light table-hover" *ngIf="tableStatus['productContent']">
+            <table class="table table-light">
                 <thead>
+                    <tr>
+                        <th colspan="5" class="text-center">
+                            <div class="text-center">
+                                <h4 class="title">Ürün İçeriği Tablosu</h4>
+                            </div>
+                        </th>
+                    </tr>
                     <tr *ngIf="dataLoaded === true">
                         <th>Id</th>
-                        <th>Name</th>
-                        <th>Content</th>
-                        <th>Unit</th>
+                        <th>Ürün Adı</th>
+                        <th>İçerik</th>
+                        <th>Miktar</th>
                         <th class="buttonSize">
-                            <button (click)="productContentAdd()" class="btnAdd">Add New</button>
+                            <button (click)="productContentAdd()" class="btnAdd">Yeni Ekle</button>
                         </th>
                     </tr>
                 </thead>
@@ -96,26 +99,32 @@
                         <td>{{productContent.unit}}</td>
                         <td class="buttonSize">
                             <button routerLink="/productContents/getbyid/{{productContent.id}}"
-                                class="btnCustom">Update</button>
+                                class="btnCustom">Güncelle</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+    <br>
     <hr>
+    <br>
     <div class="row">
         <div class="col-md-4 text-center operationClaim">
-            <div class="text-center" (click)="toggleTable('operationClaim')">
-                <h4>Operation Claim Table</h4>
-            </div>
-            <table class="table table-light table-hover" *ngIf="tableStatus['operationClaim']">
+            <table class="table table-light">
                 <thead>
+                    <tr>
+                        <th colspan="4" class="text-center">
+                            <div class="text-center">
+                                <h4 class="title">Rol Tablosu</h4>
+                            </div>
+                        </th>
+                    </tr>
                     <tr *ngIf="dataLoaded === true">
                         <th>Id</th>
-                        <th>Name</th>
+                        <th>Rol Name</th>
                         <th class="buttonSize">
-                            <button (click)="operationClaimAdd()" class="btnAdd">Add New</button>
+                            <button (click)="operationClaimAdd()" class="btnAdd">Yeni Ekle</button>
                         </th>
                     </tr>
                 </thead>
@@ -125,7 +134,7 @@
                         <td>{{operationClaim.name}}</td>
                         <td class="buttonSize">
                             <button routerLink="/operationClaims/getbyid/{{operationClaim.id}}"
-                                class="btnCustom">Update</button>
+                                class="btnCustom">Güncelle</button>
                         </td>
                     </tr>
                 </tbody>
@@ -133,17 +142,21 @@
         </div>
 
         <div class="col-md-4 text-center userOperationClaim">
-            <div class="text-center" (click)="toggleTable('userOperationClaim')">
-                <h4>User Operation Claim Table</h4>
-            </div>
-            <table class="table table-light table-hover" *ngIf="tableStatus['userOperationClaim']">
+            <table class="table table-light">
                 <thead>
+                    <tr>
+                        <th colspan="4" class="text-center">
+                            <div class="text-center">
+                                <h4 class="title">Kullanıcı Rolü Tablosu</h4>
+                            </div>
+                        </th>
+                    </tr>
                     <tr *ngIf="dataLoaded === true">
                         <th>Id</th>
-                        <th>User</th>
-                        <th>Operation C.</th>
+                        <th>Kullanıcı</th>
+                        <th>Rol</th>
                         <th class="buttonSize">
-                            <button (click)="userOperationClaimAdd()" class="btnAdd">Add New</button>
+                            <button (click)="userOperationClaimAdd()" class="btnAdd">Yeni Ekle</button>
                         </th>
                     </tr>
                 </thead>
@@ -154,11 +167,15 @@
                         <td>{{userOperationClaim.operationClaimName}}</td>
                         <td class="buttonSize">
                             <button routerLink="/userOperationClaims/getbyid/{{userOperationClaim.id}}"
-                                class="btnCustom">Update</button>
+                                class="btnCustom">Güncelle</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+
+        <div (click)="statistics()" class="col-md-4 text-center statistics">
+            <h5 class="statisticsTitle">İstatistikleri görüntülemek için tıklayın</h5>
         </div>
     </div>
 </div>

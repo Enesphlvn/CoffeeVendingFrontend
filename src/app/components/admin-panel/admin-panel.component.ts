@@ -78,6 +78,10 @@ export class AdminPanelComponent implements OnInit {
     });
   }
 
+  GetCriticalGeneralContentCount(): number {
+    return this.generalContents.filter(gc => gc.isCritialLevel).length;
+  }
+
   productAdd(){
     this.router.navigate(['products/add']);
   }

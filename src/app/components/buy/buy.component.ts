@@ -84,7 +84,7 @@ export class BuyComponent implements OnInit {
             if (this.successMessage) {
               setTimeout(() => {
                 location.reload();
-              }, 3000);
+              }, 2000);
             }
           }, 4000);
         },

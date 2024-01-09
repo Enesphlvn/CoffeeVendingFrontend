@@ -34,10 +34,11 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
-
-import { ToastrModule } from 'ngx-toastr';
 import { PasswordUpdateComponent } from './components/password-update/password-update.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+
+import { ToastrModule } from 'ngx-toastr';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NgChartsModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       positionClass: 'toast-bottom-right',

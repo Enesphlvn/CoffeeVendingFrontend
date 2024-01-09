@@ -20,6 +20,11 @@ td {
   border: solid 1px #d9c3a9;
 }
 
+.badge {
+  background-color: rgb(252, 61, 61);
+  color: white;
+}
+
 .btn-info {
   width: 15%;
 }
@@ -29,7 +34,7 @@ td {
 }
 
 .title {
-  color: rgb(207, 0, 0);
+  color: rgb(69, 69, 187);
   font-weight: bold;
 }
 

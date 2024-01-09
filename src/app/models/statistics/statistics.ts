@@ -1,3 +1,6 @@
+import { ProductStatistics } from "./productStatistics";
+import { UserStatistics } from "./userStatistics";
+
 export interface Statistics {
   dailyRevenue: number;
   monthlyRevenue: number;
@@ -5,11 +8,14 @@ export interface Statistics {
   weeklyOrderCount: number;
   dailyOrderCount: number;
   monthlyOrderCount: number;
-  topSoldProduct: string[];
-  leastSoldProduct: string[];
-  topOrderingUserNames: string[];
-  busiestOrderHours: number[];
-  busiestOrderDaysOfWeek: string[];
-  lowStockGeneralContent: string[];
+  topSoldProduct: ProductStatistics;
+  leastSoldProduct: ProductStatistics;
+  topOrderingUser: UserStatistics;
+  leastOrderingUser: UserStatistics;
+  topOrderingHour: number;
+  LeastOrderingHour: number;
+  topOrderingDayOfWeek: string;
+  leastOrderingDayOfWeek: string;
+  lowStockGeneralContents: string[];
   outOfStockProducts: string[];
 }

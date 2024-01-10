@@ -4,6 +4,7 @@
 
 .container {
   margin-top: 150px;
+  margin-bottom: 60px;
 }
 
 .spinner-grow {
@@ -18,72 +19,13 @@
 th,
 td {
   border: solid 1px #d9c3a9;
+  padding: 15px;
 }
 
-.btn-info {
-  width: 15%;
+.dayOfWeek {
+  padding: 0px 50px 0px 50px;
 }
 
-.col-md-10 {
-  margin-top: 13px;
-}
-
-.title {
-  color: rgb(207, 0, 0);
-  font-weight: bold;
-}
-
-.col-md-4 {
-  max-height: 360px;
-  overflow-y: auto;
-}
-.product {
-  padding-right: 12px;
-}
-
-.statistics {
-  background-color: #d9c3a9;
-  margin-bottom: 16px;
-  cursor: pointer;
-}
-
-.statisticsTitle {
-  color: black;
-  margin-top: 133px;
-  font-weight: bold;
-}
-
-.productContent {
-  padding-left: 12px;
-}
-
-.operationClaim {
-  padding-right: 12px;
-}
-
-.btnCustom {
-  background-color: #d9c3a9;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 10px;
-  width: 100%;
-}
-
-.btnCustom:hover {
-  color: black;
-  border: solid 1px black;
-}
-
-.btnAdd {
-  background-color: green;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 10px;
-  width: 100%;
-}
-
-.buttonSize {
-  width: 35%;
+.col-md-6 {
+  padding: 0px 50px 0px 50px;
 }

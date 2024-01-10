@@ -1,5 +1,7 @@
-import { ProductStatistics } from "./productStatistics";
-import { UserStatistics } from "./userStatistics";
+import { DayOfWeekStatistics } from './dayOfWeekStatistics';
+import { LowStockGeneralContent } from './lowStockGeneralContent';
+import { ProductStatistics } from './productStatistics';
+import { UserStatistics } from './userStatistics';
 
 export interface Statistics {
   dailyRevenue: number;
@@ -12,10 +14,13 @@ export interface Statistics {
   leastSoldProduct: ProductStatistics;
   topOrderingUser: UserStatistics;
   leastOrderingUser: UserStatistics;
-  topOrderingHour: number;
-  LeastOrderingHour: number;
-  topOrderingDayOfWeek: string;
-  leastOrderingDayOfWeek: string;
-  lowStockGeneralContents: string[];
+  sunday: DayOfWeekStatistics;
+  monday: DayOfWeekStatistics;
+  tuesday: DayOfWeekStatistics;
+  wednesday: DayOfWeekStatistics;
+  thursday: DayOfWeekStatistics;
+  friday: DayOfWeekStatistics;
+  saturday: DayOfWeekStatistics;
+  lowStockGeneralContent: LowStockGeneralContent[];
   outOfStockProducts: string[];
 }

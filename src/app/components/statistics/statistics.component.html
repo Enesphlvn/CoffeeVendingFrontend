@@ -5,7 +5,13 @@
 </div>
 
 <div *ngIf="dataLoaded" class="container">
-    <div class="row">
+    <div class="row dayOfWeek mb-5">
+        <div class="chart-custom">
+            <canvas baseChart [datasets]="dayOfWeekChartData" [labels]="dayOfWeekChartLabel"></canvas>
+        </div>
+    </div>
+    <hr>
+    <div class="row mt-5 mb-5">
         <div class="col-md-6">
             <div class="chart-custom">
                 <canvas baseChart [datasets]="revenueChartData" [labels]="revenueChartLabel"></canvas>
@@ -17,10 +23,12 @@
             </div>
         </div>
     </div>
-    <div class="row mt-5">
+    <hr>
+    <div class="row mt-5 mb-5">
         <div class="col-md-6">
             <div class="chart-custom">
-                <canvas baseChart [datasets]="topSoldProductChartData" [labels]="topAndLeastSoldproductChartLabel"></canvas>
+                <canvas baseChart [datasets]="topAndLeastSoldProductChartData"
+                    [labels]="topAndLeastSoldproductChartLabel"></canvas>
             </div>
         </div>
         <div class="col-md-6">
@@ -30,25 +38,43 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="row mt-5">
+    <hr>
+    <div class="row mt-5">
         <div class="col-md-6">
-            <table class="table table-light">
-                <thead class="text-center">
-                    <tr *ngIf="dataLoaded === true">
-                        <th>Depoda azalan malzemeler</th>
-                        <th>Stokta olmayan ürünler</th>
-                        <th>En çok sipariş verilen günler</th>
+            <table class="table">
+                <thead>
+                    <tr class="text-center">
+                        <th colspan="2">Depoda Az Kalan Malzemeler</th>
+                    </tr>
+                    <tr *ngIf="dataLoaded">
+                        <th>Malzeme</th>
+                        <th>Miktar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngIf="dataLoaded === true">
-                        <td>{{statistics?.lowStockGeneralContents}}</td>
-                        <td>{{statistics?.outOfStockProducts}}</td>
-                        <td>{{statistics?.topOrderingDayOfWeek}}</td>
+                    <tr *ngFor="let statistic of statistics.lowStockGeneralContent">
+                        <td>{{statistic.generalContentName}}</td>
+                        <td>{{statistic.value}} {{statistic.type}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </div> -->
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr class="text-center">
+                        <th colspan="2">Malzeme Yetersizliğinden Dolayı Yapılamayan Kahveler</th>
+                    </tr>
+                    <tr *ngIf="dataLoaded">
+                        <th>Ürün İsmi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let statistic of statistics.outOfStockProducts">
+                        <td>{{statistic}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

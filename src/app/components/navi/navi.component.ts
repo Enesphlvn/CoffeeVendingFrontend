@@ -52,6 +52,10 @@ export class NaviComponent implements OnInit {
     this.toastrService.error('Sistemden çıkış yapıldı');
   }
 
+  login() {
+    this.router.navigate(['login']);
+  }
+
   homePage() {
     this.router.navigate(['/']);
   }

@@ -41,6 +41,9 @@
                         </li>
                     </div>
                 </div>
+                <li *ngIf="!loginCheck" class="nav-item">
+                    <a class="option nav-link" (click)="login()">Giriş Yap</a>
+                </li>
             </ul>
         </div>
     </div>

@@ -15,8 +15,7 @@
             </div>
         </div>
         <div class="col-md-6 text-end"> 
-            <button *ngIf="!loginCheck" (click)="login()" class="btn btn-success w-20 py-2">Giriş Yap/Kayıt Ol</button>
-            <button *ngIf="adminCheck" (click)="adminPanel()" class="btn btn-info w-20 py-2">Admin Paneli</button>
+            <button *ngIf="adminCheck" (click)="adminPanel()" class="btn btn-outline-secondary w-20 py-2">Admin Paneli</button>
         </div>
         <div class="col-md-4 mb-3" *ngFor="let product of products | filterPipe:filterText">
             <div class="productDiv">

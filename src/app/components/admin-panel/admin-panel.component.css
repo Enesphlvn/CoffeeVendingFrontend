@@ -20,17 +20,19 @@ td {
   border: solid 1px #d9c3a9;
 }
 
+.statisticsButton {
+  background-color: #d9c3a9;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  width: 1309px;
+  margin-left: 12px;
+}
+
 .badge {
   background-color: rgb(252, 61, 61);
   color: white;
-}
-
-.btn-info {
-  width: 15%;
-}
-
-.col-md-10{
-  margin-top: 13px;
 }
 
 .title {
@@ -42,6 +44,7 @@ td {
   max-height: 360px;
   overflow-y: auto;
 }
+
 .product {
   padding-right: 12px;
 }

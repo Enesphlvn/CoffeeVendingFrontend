@@ -73,10 +73,6 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  login() {
-    this.router.navigate(['login']);
-  }
-
   adminPanel() {
     this.router.navigate(['adminPanel']);
   }
